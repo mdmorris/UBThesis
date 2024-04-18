@@ -3,7 +3,7 @@
 \input{Ch4_pflow/intro}
 
 
-Particle flow is the name given to the algorithms that take information from each of the subdetectors to reconstruct complete tracks of individual physics objects. The objects that can be identified by particle flow are the photon, charged and neutral hadrons (reconsructed as jets), the muon, and the electron. Neutrinos are not detected by CMS. Particle flow is used in CMS but was developed years before for the LEP experiment at CERN.
+Particle flow is the name given to the algorithms that take information from each of the subdetectors to reconstruct complete tracks of individual physics objects. The objects that can be identified by particle flow are the photon, charged and neutral hadrons (reconstructed as jets), the muon, and the electron. Neutrinos are not detected by CMS. Particle flow is used in CMS but was developed years before for the LEP experiment at CERN.
 
 In the ECAL charged and neutral hadrons cannot be distinguished from one another. Charged and neutral hadrons leave about 25\% of their energy in the ECAL.
 
@@ -25,32 +25,78 @@ The resolutions of the subdetectors do mot have the same coarseness. The tracker
 Charged particles are detected in the first layer of CMS, the silicone tracker. The particle tracks are reconstructed using a combinatorial track finder, which uses a randomly generated track to find the hits compatible with the detected charged-particle trajectory. 
 
 
+The particle flow algorithm reconstructs tracks using iterative tracking. First, a combinatorial track finder constructs a track in 3 steps:
+
+\begin{enumerate}
+	\item Initial seed generation using hits from the tracker
+	\item Collecting hits that fall within the constructed track from Step 1
+	\item Final fit of the track to calculate the $p_T$ and origin of the object
+\end{enumerate}
+
+
+To reduce misreconstruction of tracks, this combinatorial track finding is done several times with more critera applied each time. The hits that have already been assigned to tracks are also removed from consideration in future iterations. Additional criteria are placed on 
+
+\begin{itemize}
+	\item $\chi^2$ of the fit
+	\item track compatibility with reconstructed primary vertex
+	\item track seeds
+	\item track kinematics
+	\item number of hits
+\end{itemize}
+
+In the first iteration, if a track with 8 hits and no more than one missing hit is found it is considered a reconstructed track and no further criteria is used. The track reconstruction algorithm goes through 10 iterations, first starting with tracks with 3 pixel hits, then on tracks with less pixel hits, then tracks with only hits in the strips, then looking for muons using information from the muon detector system.
+
 \section{Reconstructing Electrons}
 
 Although electrons are generally stopped in the ECAL, the tracker is useful for detecting electrons because there are still inefficiencies that arise when determining which ECAL energy deposits correspond to electrons. Electrons leave a track in tracker, and they deposit some of their energy in the tracker through the mechanism of bremsstrahlung radiation. When the electron reaches the ECAL, it deposits its energy as well as the energy of the radiating bremsstrahlung photons, which results in a supercluster in the ECAL which must be detected as coming from one electron. However this is difficult to do in practice, as energy deposits from other particles in the ECAL often overlap with the electron’s supercluster.
 
 \section{Reconstructing Muons}
 
-The CMS detector is built to reconstruct muons as accurately as possible. The muon reconstruction is very efficient, with 99\% of muons accurately reconstructed. There can be false positives in the PF reconstruction of a muon, since some hadrons can punch through and be detected in the muon system. With multiple subdectors able to identify muons, there are three ways muons are detected that allows for PF reconstruction of the muon. Muons that are reconstructed in the tracker alone are called “tracker muson”. Musons that are reconstructed only in the muon detectors - teh drift tubes or the cathode strip chambers - are called “standalone muons”. Muons that are reconstructed using all subdetectors are “global muons''. Global muon reconstruction is the most efficient of the muon reconstructions when the muon $p_T$ is greater than 10 GeV.
+The CMS detector is built to reconstruct muons as accurately as possible. The muon reconstruction is very efficient, with 99\% of muons accurately reconstructed. There can be false positives in the PF reconstruction of a muon, since some hadrons can punch through and be detected in the muon system. With multiple subdetectors able to identify muons, there are three ways muons are detected that allows for PF reconstruction of the muon. Muons that are reconstructed in the tracker alone are called “tracker muons”. Muons that are reconstructed only in the muon detectors - the drift tubes or the cathode strip chambers - are called “standalone muons”. Muons that are reconstructed using all subdetectors are “global muons". Global muon reconstruction is the most efficient of the muon reconstructions when the muon $p_T$ is greater than 10 GeV.
 
 
 \section{Jets}
 
+Figure~\ref{fig:pflow_jets} shows a sketch of how the energy deposits in the ECAL and HCAL appear for the object they are associated with. Muons leave effectively no energy deposits in the calorimeters, neutral hadrons and photons leave no tracks but leave energy deposits in the HCAL and ECAL, respectively. And charged hadrons and electrons have tracks associated with their energy deposits in the calorimeters.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{figures/particle_flow_pandolfi}
+\caption{A diagram of particle flow reconstruction of jets in the CMS detector~\cite{pflow_pandolfi}.}
+\label{fig:pflow_jets}
+\end{figure}
+
 Jets are reconstructed using a clustering algorithm. The jet clustering algorithm used in this analysis is the anti-kt algorithm. The jets clustered by the anti-kt algorithm and with a radius parameter of R=0.4 are called AK4 jets. 
 
-[desribe anti-kt algorithm]
+The anti-kt algorithm works favors clustering a particle with the nearest hard particle~\cite{anti-kt}. This ensures that soft particles are less likely to be clustered together. The algorithm for anti-kt clustering comes from the same equation used for Cambridge/Aachen clustering:
+
+\begin{equation}
+	d_{ij} = \text{min} \left( k^{2p}_{ti}, k^{2p}_{tj} \right) \frac{\Delta^2_{ij}}{R^2}
+\end{equation}
+\begin{equation}
+	d_{iB} = k^{2p}_{ti}
+\end{equation}
+\begin{equation}
+	\Delta_{ij} = (y_i - y_j)^2 + (\phi_i - \phi_j)^2
+\end{equation}
+
+where $k_{ti}$ ($k_{tj}$) is transverse momentum, $y_i$ ($y_j$) is rapidity, and $\phi_i$ ($\phi_j$) is the azimuthal angle of the ith (jth) particle.
 
 The AK4 jets can be reconstructed from only the ECAL and HCAL clusters. These jets are referred to as Calo Jets. The AK4 jets reconstructed with all of the particle flow information are called PF Jets. The jets reconstructed using all of the particles produced by an MC event generator are called Ref Jets. 
 
 
-A diagram of these PF, Calo, and Ref jets is shown in Figure \ref{fig:pfjet}.
+A diagram of these PF, Calo, and Ref jets is shown in Figure~\ref{fig:pfjet} and a graphic of particle flow reconstruction is shown in Figure~\ref{fig:pflow_jets}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/pf_jet_diagram}
-\caption{A diagram of a dijet event and the reconstruction of the PF, Calo, and ref jets.}
+\caption{A diagram of a dijet event and the reconstruction of the PF, Calo, and Ref jets.}
 \label{fig:pfjet}
 \end{figure}
+
+
+
 
 \section{Missing $E_T$}
 
