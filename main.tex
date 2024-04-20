@@ -111,6 +111,12 @@
 \usepackage{pstricks}
 \usepackage{sgamevar}
 \usepackage{egameps}
+\usepackage{lineno}
+\usepackage{tikz-feynman}
+%\linenumbers
+
+
+
 \def\citeapos#1{\citeauthor{#1}'s \citeyear{#1}}
 \newenvironment{my_enumerate}
 {\begin{enumerate}
@@ -135,6 +141,8 @@
 % better.
 \usepackage[Lenny]{fncychap}
 \ChTitleVar{\Huge\sffamily\bfseries}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,6 +183,7 @@
 %%%%%%%%%%%%%%%%
 % FRONT-MATTER %
 %%%%%%%%%%%%%%%%
+
 % Title
 \title{Search for ttbar resonances in the all-hadronic channel with Run 2 legacy dataset}
 
@@ -194,6 +203,7 @@
 % This will generally be The Graduate School, though you can
 % put anything in here to suit your needs. This has also been removes from the cover page via the psuthesis.cls document because UB guidelines do not allow for it.
 \submittedto{The Graduate School}
+
 
 
 %%%%%%%%%%%%%%%%%%
@@ -293,7 +303,7 @@ Appendix-B/main%
 
 % Generates the List of Symbols. The argument should point to
 % the file containing your List of Symbols.
-% \thesislistofsymbols{SupplementaryMaterial/ListOfSymbols}
+\thesislistofsymbols{SupplementaryMaterial/ListOfSymbols}
 
 % Generates the abstract. The argument should point to the
 % file containing your abstract.

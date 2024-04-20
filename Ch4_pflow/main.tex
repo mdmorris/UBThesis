@@ -50,9 +50,16 @@ In the first iteration, if a track with 8 hits and no more than one missing hit 
 
 Although electrons are generally stopped in the ECAL, the tracker is useful for detecting electrons because there are still inefficiencies that arise when determining which ECAL energy deposits correspond to electrons. Electrons leave a track in tracker, and they deposit some of their energy in the tracker through the mechanism of bremsstrahlung radiation. When the electron reaches the ECAL, it deposits its energy as well as the energy of the radiating bremsstrahlung photons, which results in a supercluster in the ECAL which must be detected as coming from one electron. However this is difficult to do in practice, as energy deposits from other particles in the ECAL often overlap with the electron’s supercluster.
 
+
+\section{Reconstructing Photons}
+
+Photons appear in the detector similarly to electrons but without a track. In the ECAL, the requirements for electrons and photons are the same. A photon must be isolated from the calorimeter deposits of charged particles in the ECAL and HCAL.
+
 \section{Reconstructing Muons}
 
 The CMS detector is built to reconstruct muons as accurately as possible. The muon reconstruction is very efficient, with 99\% of muons accurately reconstructed. There can be false positives in the PF reconstruction of a muon, since some hadrons can punch through and be detected in the muon system. With multiple subdetectors able to identify muons, there are three ways muons are detected that allows for PF reconstruction of the muon. Muons that are reconstructed in the tracker alone are called “tracker muons”. Muons that are reconstructed only in the muon detectors - the drift tubes or the cathode strip chambers - are called “standalone muons”. Muons that are reconstructed using all subdetectors are “global muons". Global muon reconstruction is the most efficient of the muon reconstructions when the muon $p_T$ is greater than 10 GeV.
+
+In order to distinguish between muons from $q\bar{q}$ decays and muons from W and Z decays, tighter muon identification requirements are given to identify the latter events. A "soft muon" is a tracker muon with 1 pixel hit and at least 4 other inner tracker hits. The "tight muon" is a soft muon with a $\chi^2/dof < 10$, at least one hit in the muon system, and 2 matched muon segments in the muon station. {\color{red} describe muon station}
 
 
 \section{Jets}
@@ -88,6 +95,9 @@ The AK4 jets can be reconstructed from only the ECAL and HCAL clusters. These je
 
 A diagram of these PF, Calo, and Ref jets is shown in Figure~\ref{fig:pfjet} and a graphic of particle flow reconstruction is shown in Figure~\ref{fig:pflow_jets}.
 
+
+PF Jets are jets reconstructed using all particle flow candidates. PF+CHS Jets are reconstructed using all particle flow candidates except the charged hadrons associated with a pileup primary vertex. Ref Jets are jets generated from Monte Carlo simulation. Calo jets are jets made by clustering the sum of energy deposits in the ECAL and HCAL detectors.. A PF, Calo, and Ref jet for the same event are shown in the diagram for Figure~\ref{fig:pfjet}.
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/pf_jet_diagram}
@@ -100,6 +110,41 @@ A diagram of these PF, Calo, and Ref jets is shown in Figure~\ref{fig:pfjet} and
 
 \section{Missing $E_T$}
 
+The missing $E_T$ is useful for the identification of neutrinos which do not interact with any of the detector materials. It can also be useful to search for new particles. Since the mass of the particle is unknown, $E^{miss}_{T} = p^{miss}_{T}$. The sum of the $p_T$ in teh azimuthal plane is 0 before an event, which means event in which $\sum p_{T} > 0$ has missing $p_T$. Missing $p_T$ is defined in Equation~\ref{eq:ptmiss} before jet energy corrections, and in Equation~\ref{eq:ptmiss_corr} after corrections.
+
+\begin{equation}
+	p^{miss}_{T}   = -\sum_{i=1}^{N_{particles}} p_{T_{i}}
+	\label{eq:ptmiss}
+\end{equation}
+
+\begin{equation}
+	p^{miss}_{T,PF}   = -\sum_{i=1}^{N_{particles}} p_{T_{i}} - \sum_{j=1}^{N_{PF\ jets}} (p_{T_{j,corr}} - p_{T_{j}})
+	\label{eq:ptmiss_corr}
+\end{equation}
+
+\section{Pileup}
+
+The pileup in an event can be estimated by the number of reconstructed primary vertices. The reconstruction efficiency of primary vertices is approximately 70\%. The primary vertex considered as the collision for the event is called the "hard scatter vertex" and is chosen by ordering the primary vertex by the $\sum p_{T}^2$.
+
+The information from the reconstructed pileup vertices can be used to clean up the objects reconstructed by the PF algorithm. If a charged hadron has a primary vertex determined to be from a pileup collision, that hadron is subtracted from the reconstructed PF jets. These jets are saved separately as PF+CHS jets. Neutral hadrons can also be removed without track information by calculating the $p_T$ density in the $( \eta, \phi )$ plane using a similar algorithm to jet clustering.
 
 \section{PF Validation}
+
+The particle flow algorithm is validated by the Data to the MC for kinematic distributions and for the number of pileup vertices $\mu$. A good Data and MC agreement for the number of pileup vertices is shown in Figure~\ref{fig:pfval_mu}.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/pfvalidation_mu_replace}
+\caption{Comparison of number of pileup vertices in MC and Data~\cite{CMS-PRF-14-001}}
+\label{fig:pfval_mu}
+\end{figure}
+
+Additional validation for the PF algorithm in the CMS Software (CMSSW) is done by comparing the outputs of previous software releases to new software releases.
+
+\begin{itemize}
+	\item discuss ppd pf validation
+\end{itemize}
+
+
 
