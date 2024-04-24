@@ -1,0 +1,377 @@
+\section{Background Estimation}
+\label{sec:bkg_est}
+
+With an all-hadronic final state, our background is dominated by Non Top Multijet (NTMJ) events. Such events are not well modeled in simulation. Therefore we rely on a data-driven technique to accurately estimate the NTMJ background in our signal. We use the 2Dalphabet~\cite{2DAlphabet} method which relies on three variables the $m_{t}$, $m_{t\bar{t}}$ , and the mass decorelated DeepAK8 tagger score of the selected two leading jets.
+
+
+
+%so MC QCD events do not describe the background in our signal region accurately. In order to accurately describe this dominant portion of our background, we use a data-driven background estimate, which interpolates the events counts between two sideband regions.
+
+
+
+\subsection{2DAlphabet Method}
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{figures/ABCD_mtt_binc.pdf}
+		\caption{The 2DAlphabet method uses sidebands in the $m_{t}$ variable and a cut on the DeepAK8MD discriminatory to separate the samples into 6 regions. The Fail ($A$,$C$,$E$) regions are then fit to the Pass ($B$,$D$,$F$) regions in the sidebands of $m_{t}$ with an analytic function $R$. The analytic function calculated in the sidebands is used to transfer the background contribution in the Fail region to the background estimate in the Pass region so that $D = RC$. The analysis is further divided into rapidity regions, and the fit is performed once for the central region and once for the forward region.}
+		\label{fig:ABCD}
+	\end{center}
+\end{figure}
+
+
+
+%We use the 2DAlphabet data-driven background estimate to model our NTMJ background~\cite{2DAlphabet}. 2DAlphabet 
+
+The 2Dalphbet method is a 2D version of the simple ABCD method~\cite{ABCDmethod} and it is illustrated in Figure~\ref{fig:ABCD}. It has six regions with the signal region labeled $D$, with the requirements for each region shown in Table~\ref{tab:ABCD}.
+
+First we compute the Fail to pass Transfer function (R) of NTMJ background, defined below, in the $m_{t}$ sidebands . Then we interpolate it from the $m_{t} $ sidebands control regions to the $m_{t}$ signal region. The background is modeled in a signal region $D$ by multiplying the control region $C$ by the transfer function, so that $C = R\times D$.
+
+
+The  \textbf{Pass regions} correspond  to $B$,$D$ and $F$. An event is categorized into the Pass region if 
+\begin{itemize}
+	\item Both leading jets pass DeepAK8MD $>$ 0.1\% WP
+\end{itemize}
+
+The  \textbf{Fail regions} correspond to $A$,$C$,$E$. An event is categorized into the Fail region if
+\begin{itemize}
+	\item Leading  jet passes DeepAK8MD $>$ 0.1\% WP
+	\item Sub-leading jet passes  0.5\% WP $<$ DeepAK8MD $<$  0.1\% WP
+\end{itemize}
+
+
+The 0.5\% WP and 0.1\% WP discriminators are shown in Table~\ref{tab:deepak8-pass-fail}.
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|| c c c ||} 
+ \hline
+ Year & 0.5\% WP &  0.1\% WP \\ 
+ \hline\hline
+ 2016 & 0.632 & 0.889  \\ 
+ 2017 & 0.554 & 0.863  \\ 
+ 2018 & 0.685 & 0.920  \\ 
+ \hline
+\end{tabular}
+\caption{Discriminator values for the 0.5\% WP and 0.1\% WP for the DeepAK8MD tagger~\cite{DeepAK8TopTagwiki}.}
+\label{tab:deepak8-pass-fail}
+\end{table}
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|| c || c | c | c||} 
+ 		 \hline
+       & $25 < m_t < 105$ GeV & $105 < m_t < 210$ GeV & $210 < m_t < 475$ GeV \\ [0.5ex]  \hline\hline
+		 Fail & A & C & E \\ [0.5ex] 
+		 \hline 
+		 Pass & B & D & F \\ [0.5ex] \hline
+\end{tabular}
+\caption{Requirements for the 2DAlphabet regions depicted in Figure~\ref{fig:ABCD}}.
+\label{tab:ABCD}
+\end{table}
+
+The leading jets are chosen by taking the two leading $p_T$ jets after the event selection cuts. The jet with the higher DeepAK8MD discriminator of the two leading jets is the leading jet.
+
+The NTMJ background in the Fail region is defined as the difference between data and the simulated backgrounds. In this analysis SM TTbar is the only simulated background, so NTMJ = Data - SM TTbar in the Fail region, calculated from an $m_{t \bar{t}}$ vs $m_t$ distribution, where $m_t$ is the soft-drop mass of the leading jet, and $m_{t \bar{t}}$ is the invariant mass of the two leading jets. 
+
+
+Projections of the ratio of the number of events in the pass region over the number of events in the fail region ($n_{pass}/n_{fail}$ are shown for 2016 in Figures~\ref{fig:2016cen_proj}-~-\ref{fig:2016fwd_proj}. The central projection of $m_t$ is fit with a constant function, while the central $m_t$ and central and forward $m_{t\bar{t}}$ projections are fit with linear functions. The fits are not meant to be exactly the same as 2DAlphabet, but are a cross check of the choice of transfer function. The projection plots for all years can be found in Appendix~\ref{sec:appendix_2dalphabet}. The prefit Fail NTMJ distributions calculated from Data - SM TTbar are shown in Figures~\ref{fig:prefit_closure_2016}~-~\ref{fig:prefit_closure_2018}. These distributions will be multiplied by the transfer fucntion to get the Pass region NTMJ background estimate. Plots of the projections with the trends that the transfer functions are fitting are shown in Appendix~\ref{sec:appendix_2dalphabet}.
+
+
+The transfer function $R$ is then initiated with all parameters = 0.1 and fit in the sideband regions of $m_t$ ($A$, $B$, $E$, $F$). After the transfer function is fit, the signal region NTMJ background estimate is calculated to be $D = R C$. The results of the background estimate in the sideband regions are shown in Figures~\ref{fig:closure_2016}~-~\ref{fig:closure_2018}.
+
+
+\begin{figure}[htp]
+	\begin{center}
+		
+		\includegraphics[width=0.45\textwidth]{Plots/2dalphabet/projections/an_v4_inconsistent_binning_2016_ttbarfits_cen_limit_0x1_projx.pdf}
+		\includegraphics[width=0.45\textwidth]{Plots/2dalphabet/projections/an_v4_inconsistent_binning_2016_ttbarfits_cen_limit_0x1_projy.pdf}
+		\caption{2016 central projections of $m_t$ (left) and $m_{t\bar{t}}$ (right), fit with a constant function in $m_t$ and a linear function in $m_{t\bar{t}}$.}
+		\label{fig:2016cen_proj}
+	\end{center}
+\end{figure}
+
+
+
+\begin{figure}[htp]
+	\begin{center}
+		
+		\includegraphics[width=0.45\textwidth]{Plots/2dalphabet/projections/an_v4_inconsistent_binning_2016_ttbarfits_fwd_limit_1x1_projx.pdf}
+		\includegraphics[width=0.45\textwidth]{Plots/2dalphabet/projections/an_v4_inconsistent_binning_2016_ttbarfits_fwd_limit_1x1_projy.pdf}
+		\caption{2016 forward projections of $m_t$ (left) and $m_{t\bar{t}}$ (right), fit with a linear function in $m_t$ and a linear function in $m_{t\bar{t}}$.}
+		\label{fig:2016fwd_proj}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+	\begin{center}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet//QCD_cen16Fail_postfit_2D.pdf}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet//QCD_fwd16Fail_postfit_2D.pdf}	
+		
+		\caption{Fail $m_{t\bar{t}}$ vs $m_t$ of the NTMJ in the 2016 central (left) and forward (right) regions.}
+		\label{fig:prefit_closure_2016}
+	\end{center}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\begin{center}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet//QCD_cen17Fail_postfit_2D.pdf}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet//QCD_fwd17Fail_postfit_2D.pdf}	
+		
+		\caption{Fail $m_{t\bar{t}}$ vs $m_t$ of the NTMJ in the 2017 central (left) and forward (right) regions.}
+		\label{fig:prefit_closure_2017}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+	\begin{center}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet//QCD_cen18Fail_postfit_2D.pdf}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet//QCD_fwd18Fail_postfit_2D.pdf}		
+		\caption{Fail $m_{t\bar{t}}$ vs $m_t$ of the NTMJ in the 2018 central (left) and forward (right) regions.}
+		\label{fig:prefit_closure_2018}
+	\end{center}
+\end{figure}
+
+
+
+
+
+%\begin{figure}[!htbp]
+%  \begin{center}
+%    \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_cen16Fail_projy1.pdf} 
+%    \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_cen16Pass_projy1.pdf} \\ 
+%        \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_fwd16Fail_projy1.pdf} 
+%    \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_fwd16Pass_projy1.pdf} 
+%    \caption{The difference between Data and SM TTbar in the Fail region (left) and the Pass region (right), for the low $m_t$ sideband in 2016 datasets for the central (top) and forward (bottom) rapidity regions.}
+%    \label{fig:QCD16}
+%  \end{center}
+%\end{figure}
+%
+%
+%\begin{figure}[!htbp]
+%  \begin{center}
+%    \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_cen17Fail_projy1.pdf} 
+%    \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_cen17Pass_projy1.pdf} \\ 
+%        \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_fwd17Fail_projy1.pdf} 
+%    \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_fwd17Pass_projy1.pdf} 
+%    \caption{The difference between Data and SM TTbar in the Fail region (left) and the Pass region (right), for the low $m_t$ sideband in 2017 datasets for the central (top) and forward (bottom) rapidity regions.}
+%    \label{fig:QCD17}
+%  \end{center}
+%\end{figure}
+%
+%\begin{figure}[!htbp]
+%  \begin{center}
+%    \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_cen18Fail_projy1.pdf} 
+%    \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_cen18Pass_projy1.pdf} \\ 
+%        \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_fwd18Fail_projy1.pdf} 
+%    \includegraphics[width=0.45\textwidth=0.2]{Plots/2dalphabet/QCD_fwd18Pass_projy1.pdf} 
+%    \caption{The difference between Data and SM TTbar in the Fail region (left) and the Pass region (right), for the low $m_t$ sideband in 2018 datasets for the central (top) and forward (bottom) rapidity regions.}
+%    \label{fig:QCD18}
+%  \end{center}
+%\end{figure}
+
+%
+%\vspace{10cm}
+%
+%\begin{figure}[!htbp]
+%
+%  \begin{center}
+%  \begin{picture}(100,100)
+%\put(0,0){\includegraphics[width=0.45\textwidth]{Plots/2dalphabet/2016/QCD_cenFail_postfit_2D.pdf}}
+%\put(90,10){$m_t$ [GeV]}
+%\put(10,10){$m_{t\bar{t}}$ [GeV]}
+%\end{picture} 
+%
+%  \caption{Plot of the Fail region with which 2DAlphabet fits the transfer function.}
+%    \label{fig:NTMJ_2D_Fail}
+%  \end{center}
+%  
+%\end{figure}
+%
+%\vspace{10mm}
+%
+%
+%\begin{figure}[!htbp]
+%
+%  \begin{center}
+%  \begin{picture}(100,100)
+%\put(0,0){\includegraphics[width=0.45\textwidth]{Plots/2dalphabet/2016/QCD_cenPass_postfit_2D.pdf}}
+%\put(90,10){$m_t$ [GeV]}
+%\put(10,10){$m_{t\bar{t}}$ [GeV]}
+%\end{picture} 
+%
+%  \caption{Plot of the Pass region with which 2DAlphabet fits the transfer function.}
+%    \label{fig:NTMJ_2D_Pass}
+%  \end{center}
+%  
+%\end{figure}
+
+
+%The transfer function from C to D (where D is the signal region) is fit simultaneously (what do you mean?}) and interpolated from the fit in the top mass window sidebands.}\\
+%{ I would suggest to add the 3D cartoon to explain the method better, this cartoon at first sight is a bit confusing, it makes me think like we are counting the number of yields instead of fitting the distribution it self}.
+
+
+
+\subsection{Fail $\rightarrow$ Pass transfer function}
+
+When fitting the 2D transfer function, the bins in the 2D plots of the "Pass" region are freely floating parameters in the fit. The fit is done using a 2D binned likelihood fit to data as described in Equation~\ref{eq:likelihood}~\cite{CMS:2021iuw_2dalphabet}
+
+
+\begin{equation}
+	\centering
+	- \ln \mathcal{L} (\vec{d}, \vec{\theta}) = \sum^{N_{\text{bins, Fail}}}_{i=1} \left[ n^{NTMJ}_{Fail}(i,\vec{\theta}) - d_{Fail}(i) \ln n^{NTMJ}_{Fail}(i,\vec{\theta}) \right]   \nonumber
+\end{equation}
+\begin{equation}
+	\centering
+	+\sum^{N_{\text{bins, Pass}}}_{i=1} \left[ n^{NTMJ}_{Pass}(i,\vec{\theta}) - d_{Pass}(i)   \ln n^{NTMJ}_{Pass}(i,\vec{\theta}) \right]
+\label{eq:likelihood}
+\end{equation}
+
+
+where $n$ is the number of events in the total background estimation, $d(i)$ is the number of observed events in data for bin $i$, and $\vec{\theta}$ is the set of nuisance parameters described by the systematic uncertainties in Section~\ref{sec:syst}.
+
+
+The contribution of NTMJ events in bin $i$ of the 2D $m_{t} \text{ vs } m_{t \bar{t}}$ histogram is then
+
+\begin{equation}
+	n^{NTMJ}_{Pass}(i) = n^{NTMJ}_{Fail}(i) R_{Pass/Fail} (m_{t}, m_{t \bar{t}})
+\end{equation}
+
+
+The  transfer function used in this analysis is defined in equation~\ref{eq:transfer} and the parameter values for the 2016 datasets are shown in Table~\ref{tab:transfer_all}.
+
+%The scenarios we tested for the "Pass" and "Fail" regions are:
+%
+%\begin{itemize}
+%
+%\item Medium to Antitag
+%\begin{itemize}
+%\item Fail: 0.2 $<$ DeepAK8MD discriminator $<$ 0.5\% WP
+%\item Pass: DeepAK8MD discriminator $>$ 0.5\% WP
+%\end{itemize}
+%
+%\item Tight to Medium
+%\begin{itemize}
+%\item Fail: 0.5\% WP $<$ DeepAK8MD discriminator $<$ 0.1\% WP
+%\item Pass: DeepAK8MD discriminator $>$ 0.1\% WP
+%\end{itemize}
+%
+%\end{itemize}
+
+
+%The analysis is already divided into b-tag and rapidity regions (central 0b, central 1b, central 2b, forward 0b, forward 1b, forward 2b), so we tested scenarios in which either the 6 b-tag regions or 2 rapidity regions inclusive in b-tagging were fit separately using 2DAlphabet:
+%
+%\begin{itemize}
+%\item Inclusive in btag and rapidity regions
+%\item Inclusive in btag regions
+%\item Split into central 0b, central 1b, central 2b, forward 0b, forward 1b, forward 2b regions
+%\end{itemize}
+%
+
+%We compared the limits and determined that the "Tight to Medium" Pass to Fail, inclusive in b-tagging scenario gives the best limits for this analysis.
+
+The transfer functions used for the  the "Tight to Medium" corresponding to "Pass to Fail" background estimate are below, and the statistical tests done to determine these functions are shown in Section~\ref{sec:ftests}
+%
+%\begin{equation}
+%\text{2016 central } R_{\mathtext{Pass/Fail}} = (p_{0} + p_{1} m_{t} + p_{2} m^{2}_{t} + p_{3} m^{3}_{t}) (1 + p_{4} m_{t\bar{t}}) \\
+%\text{2016 forward } R_{\mathtext{Pass/Fail}} = (p_{0} + p_{1} m_{t} + p_{2} m^{2}_{t}) (1 + p_{3} m_{t\bar{t}}) \\
+%\text{2017 central } R_{\mathtext{Pass/Fail}} = (p_{0} + p_{1} m_{t}) (1 + p_{4} m_{t\bar{t}}) \\
+%\text{2017 forward } R_{\mathtext{Pass/Fail}} = (p_{0} + p_{1} m_{t}) (1 + p_{4} m_{t\bar{t}}) \\
+%\text{2018 central } R_{\mathtext{Pass/Fail}} = (p_{0} + p_{1} m_{t}) (1 + p_{4} m_{t\bar{t}}) \\
+%\text{2016 forward } R_{\mathtext{Pass/Fail}} = (p_{0} + p_{1} m_{t} + p_{2} m^{2}_{t} + p_{3} m^{3}_{t}) (1 + p_{4} m_{t\bar{t}}) \\
+%
+%\label{eq:transfer}
+%\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\text{central } R_{\text{Pass/Fail}} &= (a) (1 + c_{1} m_{t\bar{t}}) \\
+\text{forward } R_{\text{Pass/Fail}} &= (a + b_{1} m_{t}) (1 + c_{1} m_{t\bar{t}}) \\
+\end{aligned}
+\label{eq:transfer}
+\end{equation}
+
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{| c | c | c | c | c | c | c | }
+        \hline
+        \textbf{Parameter} & \textbf{2016 central}  & \textbf{2016 forward} & \textbf{2017 central}  & \textbf{2017 forward} & \textbf{2018 central}  & \textbf{2018 forward}  \\
+        \hline
+	a & $1.69 \pm 0.17$  & $1.59 \pm 0.16$  & $1.56 \pm 0.15$  & $1.48 \pm 0.13$  & $1.25 \pm 0.16$  & $1.29 \pm 0.16$ \\
+	b1 & -   & $1.29 \pm 0.4$  & -   & $1.25 \pm 0.35$  & -   & $0.87 \pm 0.42$ \\
+	c1 & $2.66 \pm 0.81$  & $0.27 \pm 0.24$  & $2.82 \pm 0.68$  & $0.54 \pm 0.21$  & $1.97 \pm 0.74$  & $0.28 \pm 0.25$ \\
+        \hline
+    \end{tabular}
+    \caption{Parameter values the transfer function for the central and forward rapidity regions for all years.}
+    \label{tab:transfer_all}
+\end{table}
+
+
+
+
+%
+%The number of expected events is 
+%
+%\begin{equation}
+%N = \sigma_{Z'} \mathcal{B} ( Z' \rightarrow t\bar{t} \rightarrow \mathrm{hadrons}) \epsilon L
+%\label{eq:expected}
+%\end{equation}
+%
+%where $\epsilon$ is the signal acceptance and efficiency, and $L$ is the integrated luminosity.
+
+\subsection{Sideband Regions}
+
+To validate the background estimate, we plot the $t\bar{t}$ candidate mass in the lower sideband region of the softdrop mass of the leading $p_T$ jet, after processing the datasets with same event selection and transfer function fit. The background estimate for the low mass window and high mass window is shown in Figure~\ref{fig:closure_2016} for the 2016 datasets, Figure~\ref{fig:closure_2017} for the 2017 datasets, and Figure~\ref{fig:closure_2018} for the 2018 datasets. 
+
+
+
+
+\begin{figure}[!htbp]
+	\begin{center}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy0_cen16Pass_logy.pdf}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy0_fwd16Pass_logy.pdf}\\
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy2_cen16Pass_logy.pdf}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy2_fwd16Pass_logy.pdf}\\
+
+		\caption{Top(bottom) Background estimate in the low(high) $m_{t}$ top mass window on the $t\bar{t}$ resonance mass distribution for the 2016 transfer function NTMJ background estimate for central (left) and forward (right) category regions.}
+		\label{fig:closure_2016}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+	\begin{center}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy0_cen17Pass_logy.pdf}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy0_fwd17Pass_logy.pdf}\\
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy2_cen17Pass_logy.pdf}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy2_fwd17Pass_logy.pdf}\\
+		
+		\caption{Top(bottom) Background estimate in the low(high) $m_{t}$ top mass window on the $t\bar{t}$ resonance mass distribution for the 2017 transfer function NTMJ background estimate for central (left) and forward (right) category regions.}
+		\label{fig:closure_2017}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+	\begin{center}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy0_cen18Pass_logy.pdf}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy0_fwd18Pass_logy.pdf}\\
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy2_cen18Pass_logy.pdf}
+		\includegraphics[width=0.45\textwidth=0.4]{Plots/2dalphabet/postfit_projy2_fwd18Pass_logy.pdf}\\
+		
+		\caption{Top(bottom) Background estimate in the low(high) $m_{t}$ top mass window on the $t\bar{t}$ resonance mass distribution for the 2018 transfer function NTMJ background estimate for central (left) and forward (right) category regions.}
+		\label{fig:closure_2018}
+	\end{center}
+\end{figure}
+
+
+
+
+
+

@@ -100,7 +100,9 @@
 \usepackage{bm}
 \usepackage{eqlist} % Makes for a nice list of symbols.
 \usepackage[final]{graphicx}
-\usepackage[dvipsnames]{color}
+%\usepackage[dvipsnames]{color}
+\usepackage[table,x11names,dvipsnames,table]{xcolor}
+
 \DeclareGraphicsExtensions{.pdf, .jpg, .png}
 \usepackage{natbib}
 \usepackage{har2nat}
@@ -112,7 +114,7 @@
 \usepackage{sgamevar}
 \usepackage{egameps}
 \usepackage{lineno}
-\usepackage{tikz-feynman}
+\usepackage[compat=1.1.0]{tikz-feynman} 
 %\linenumbers
 
 
@@ -233,15 +235,14 @@
 
 % Makes use of LaTeX's include facility. Add as many chapters
 % and appendices as you like.
-\includeonly{%
-Ch1_Intro/main,%
-Ch2_theory/main,%
-Ch3_CMS/main,%
-Ch4_pflow/main,%
-Ch5_analysis/main,%
-Appendix-A/main,%
-Appendix-B/main%
-}
+%\includeonly{%
+%ch1_intro,%
+%ch2_theory,%
+%Ch3_CMS/main_cms,%
+%ch4_pflow,%
+%Ch5_analysis/main,%
+%appendix_kinematics,%
+%}
 
 %%%%%%%%%%%%%%%%%
 % THE BEGINNING %
@@ -327,11 +328,10 @@ Appendix-B/main%
 % THE ACTUAL CONTENT %
 %%%%%%%%%%%%%%%%%%%%%%
 % Chapters
-%\include{Detector}
-\include{Ch1_Intro/main}
-\include{Ch2_theory/main}
-\include{Ch3_CMS/main}
-\include{Ch4_pflow/main}
+\include{ch1_intro}
+\include{ch2_theory}
+\include{Ch3_CMS/main_cms}
+\include{ch4_pflow}
 \include{Ch5_analysis/main}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendices
@@ -342,6 +342,9 @@ Appendix-B/main%
 % sequence. Since the PSU Grad School requires
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
+\include{appendix_kinematics}
+\include{appendix_limits}
+\include{appendix_statistics}
 %\include{Appendix-A/main}
 %\include{Appendix-B/main}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -352,7 +355,7 @@ Appendix-B/main%
 % that abstract.
 %\include{nontechnical-abstract}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-} % End of the \allowdisplaybreak command %
+% End of the \allowdisplaybreak command %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%

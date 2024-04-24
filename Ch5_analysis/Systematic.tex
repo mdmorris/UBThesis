@@ -1,0 +1,105 @@
+
+\section{Systematic Uncertainties} 
+\label{sec:syst}
+
+We evaluate sources of systematic uncertainties on the SM ttbar samples and the NTMJ background estimate, which affect the normalization of event yields and the shape of the invariant mass distribution. An overview of the prior systematic uncertainties input to the fit is shown in Table~\ref{tab:syst_table}, and plots of the effect of the uncertainties on the invariant mass distributions are shown in Appendix~\ref{sec:appendix_syst}.
+
+\begin{table}[!htbp]
+    \begin{center}
+        \begin{tabular}{lcc}
+        Systematic Uncertainty & Value & Type \\
+        \hline
+            Luminosity 2016 (Uncorrelated)   & 1.0\%                 & Rate         \\
+            Luminosity 2017 (Uncorrelated)          & 2.0\%                 & Rate         \\
+            Luminosity 2018 (Uncorrelated)          & 1.5\%                 & Rate         \\
+	   	 	Luminosity 2017 (Correlated 2017, 2018)			   & 0.6\%                 & Rate         \\
+	    	Luminosity 2018 (Correlated 2017, 2018)			   & 0.2\%                 & Rate         \\
+            Luminosity 2016 (Correlated 2016, 2017, 2018)		   & 0.6\%                 & Rate         \\
+            Luminosity 2017 (Correlated 2016, 2017, 2018)		   & 0.9\%                 & Rate         \\
+            Luminosity 2018 (Correlated 2016, 2017, 2018)		   & 2.0\%                 & Rate         \\
+            $t\bar{t}$ Cross Section                          & 20\%                  & Rate         \\
+	   		Top Tagging SF                                      & unconstrained & Rate \\
+            JES16                     & +5.1\%/-4.8\% & Rate + Shape \\
+            JES17                     & +4.8\%/-4.4\% & Rate + Shape \\
+            JES18                     & +5.5\%/-4.4\% & Rate + Shape \\
+            JER16                      & +0.4\%/-0.5\% & Rate + Shape \\
+            JER17                      & +0.7\%/-0.8\% & Rate + Shape \\
+            JER18                      & +0.6\%/-0.6\% & Rate + Shape \\
+            PDF Uncertainty                               &  +0.8\%/-1.7\% & Rate + Shape \\
+            Pileup Uncertainty                            & +0.7\%/-0.8\% & Rate + Shape \\
+            $t\bar{t}$ $Q^2$ Uncertainty                  &+24\%/-24\% & Rate + Shape \\
+            L1 Prefiring                                      & +0.6\%/-0.6\% & Rate + Shape \\
+            Transfer Function p0                      & $\pm 1 \sigma$ & Rate + Shape \\
+            Transfer Function p1                      & $\pm 1 \sigma$ & Rate + Shape \\
+            Transfer Function p2                      & $\pm 1 \sigma$ & Rate + Shape \\
+            Transfer Function p3                      & $\pm 1 \sigma$ & Rate + Shape \\
+            Transfer Function p4                      & $\pm 1 \sigma$ & Rate + Shape \\
+            %Top-tagging Efficiency    & freely floating & Rate + Shape \\
+        \end{tabular}
+        \caption{Summary of systematic uncertainties types for this analysis.} 
+        \label{tab:syst_table}
+    \end{center}
+\end{table}
+
+
+    
+
+
+
+\subsection{Luminosity} 
+
+The luminosity has corresponding normalization uncertainties of $\pm$ 1.6\%,  $\pm$ 2.3\%, $\pm$ 2.5\% for the 2016, 2017, and 2018 integrated luminosity of the Run 2 datasets. 
+
+\subsection{Cross Section }
+
+The $t\bar{t}$ cross section has a normalization uncertainty of and $\pm$ 20\%. The 20\% prior constraint is approximately 3 times the overall uncertainty on the cross section so will allow sufficient variation in the cross section variation in the likelihood. 
+
+
+\subsection{Top Tagging SF }
+
+The uncertainty from the the scale factor is calculated during the fit, where the top tagging SF is an unconstrained nuisance parameter that is extracted from the fit.
+
+
+
+\subsection{$Q^2$ }
+The SM TTbar has a shape uncertainty from the factorization and normalization scale ($Q^2$). The $Q^2$ uncertainties are evaluated using the envelope method, in which $\mu_R$ and $\mu_F$ are varied by factors of 2 or 0.5, which results in a shape difference in the $m_{\ttbar}$ spectrum.  The shape templates for the $Q^2$ uncertainties are shown in Appendix \ref{sec:Q2_shapes}.
+
+
+%\subsection{Top Tagging} \label{section:btagunc}
+
+%A top tagging scale factor is applied twice in the signal region for SM TTbar events, and is treated as an unconstrained nuisance parameter. The scale factor is recommended by the CMS JetMET Algorithms and Reconstruction group~\cite{topTagTwiki}.
+
+%\subsection{Top Tagging} \label{section:btagunc}
+
+%A top tagging scale factor is applied twice in the signal region for SM TTbar events, and is treated as an unconstrained nuisance parameter. The scale factor is recommended by the CMS JetMET Algorithms and Reconstruction group~\cite{topTagTwiki}.
+
+
+\subsection{Background Estimate} \label{section:BKGunc}
+
+The background estimate is calculated using a 2D fitting function from the 2DAlphabet package. The background estimate uncertainty is then determined by varying the parameters $\pm 1 \sigma$, with uncertainties for each parameter described in Table~\ref{tab:transfer_all}.
+
+\subsection{Pileup} \label{sectionPUunc}
+
+The systematic uncertainties from pileup are evaluated by varying the 4.6\% uncertainty on the $69.2$ mb minimum bias cross section up and down and reweighting the pileup distribution. The shape templates for the pileup uncertainties are shown in Appendix \ref{sec:PILEUP_shapes}.
+
+\subsection{Parton Distribution Function (PDF)} \label{sectionPDFunc}
+
+The uncertainties from the parton distribution function of the proton are evaluated by calculating the RMS of the NNPDF3.1 PDF weights saved in the nanoAOD files for the SM TTbar and signal datasets. The shape templates for the PDF uncertainties are shown in Appendix \ref{sec:PDF_shapes}.
+
+\subsection{Jet Energy Scale}
+
+The jet four-momentum is varied up and down by the jet energy scale uncertainty ~\cite{CMS:JER}. The corrections are dependent on  $p_T$ and $\eta$, and are calculated both for the AK4 jets and for the AK8 jets. The shape templates for the JES uncertainties are shown in Appendix \ref{sec:JES_shapes}. A single nuisance parameter is used for all of the jet collections and years. 
+
+\subsection{Jet Energy Resolution}
+
+The discrepancies in the Jet Energy Resolution in the simulated samples and data is accounted for by applying eta-dependent smearing to the jets, as recommended by ~\cite{CMS:JER}. This systematic uncertainty is applied to the AK4 jets and AK8 jets in all simulated samples, and the systematic shapes can be seen in Section \ref{sec:JER_shapes}. 
+
+
+
+%\subsection{Background Estimation}
+
+%The systematic uncertainties in the simulated samples correspond to +/- 1 $\sigma$ uncertainties in the parameters of the 2D transfer function (equation \ref{eq:transfer}). The background estimation uncertainty is therefore a +/- 1 $\sigma$ shape uncertainty retrieved by estimating the multijet background with the transfer function parameters adjusted up or down by 1 $\sigma$ variation.
+
+
+
+
