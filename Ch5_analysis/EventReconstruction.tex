@@ -3,6 +3,7 @@
 
 This analysis selects events in which each top quark in a $t\bar{t}$ pair has decayed to a pair of quarks and a b jet that are merged into a single jet. Since the two quarks and b jet are all captured in a single boosted jet for each top quark, the jets in the event contain identifiable substructure. We utilize the standard CMS particle flow-based reconstruction of objects with the legacy Run 2 processing for data and MC. This analysis only uses jets, and hence does not select leptons or missing transverse momentum. The jet reconstruction and identification is discussed in this section.
 
+
 \subsection{Jet Reconstruction}
 \label{sec:jetreco}
 
@@ -21,30 +22,6 @@ We employ two jet collections clustered with the anti-$k_{\mathrm{T}}$ (AK) algo
 	\caption{JEC and JER versions used for each year in this analysis.}
 	\label{tab:jerc}
 \end{table}
-
-\subsection{Softdrop jet mass}
-
-One of the observables in this analysis is the soft drop mass of the AK8 jets. The soft drop algorithm recursively removes soft particles which helps to distinguish boosted jets from background QCD jets. Both jets in the event are therefore required to pass the soft drop conditions~\cite{softdrop}:
-	
-%with a separation of $\Delta \phi > 2.1$. The semileptonic analysis requires exactly 1 top-tagged AK8 jet and hence is forced to be orthognal. Our event selection does not have dilepton events and are therefore also orthogonal to the dileptonic analysis of this channel. 
-
-%The signal region is defined by the two jets in the ttbar candidate passing the top tagger, and by a soft drop mass window cut of $105 < m_{SD} < 210 GeV$. The sidebands of the soft drop mass are $25 < m_{SD} < 105 GeV$ and $210 < m_{SD} < 475 GeV$ and are used for background estimation. Both jets in the event are therefore required to pass the soft drop conditions:
-
-\begin{itemize}
-
-	\item Undo the last stage of Cambridge-Aachen clustering to to break the jet $j$ into two subjets $j_1$ and $j_2$.
-	\item Require both subjets to pass the soft drop condition
-	
-	\begin{equation}
-		   \frac {\text{min}(p_{T1},p_{T2} )}{p_{T1} + p_{T2}} >   z_{\text{cut}} \left( \frac{ \Delta R_{12} }{ R_0 } \right)^{\beta}
-	\end{equation}
-	
-	where $p_{T1}$ and $p_{T2}$ are the $p_{T}$ of $j_1$ and $j_2$, respectively; $\Delta R_{12}$ is the distance between $j_1$ and $j_2$ in the rapidity-azimuth plane, $R_0$ is the jet radius, and $z_{\text{cut}}$ = 0.1 is the soft drop threshold, and $\beta$ = 0 is the angular exponent. 
-	
-	\item If the subjets pass the soft drop condition, define $j$ as the final state soft drop jet. If the subjets fail the condition, redefine the subjet with the larger $p_T$ as $j$ and iterate the soft drop algorithm.
-	
-\end{itemize}
-
 
 
 \subsection{Top Quark Identification}
@@ -149,7 +126,7 @@ The following event selection is applied:
 \label{sec:trigeff}
 
 
-The data were collected with a trigger based on the total scalar sum of transverse momenta of PF jets in the event (PFHT). Substructure based triggers such as AK8PFTH800\_TrimMass50 and similar are not used in this analysis because they bias the background estimate. Further explanation of the trigger studies can be found in Appendix~\ref{sec:appendix_trigger}.
+The data were collected with a trigger based on the total scalar sum of transverse momenta of PF jets in the event (PFHT). Substructure based triggers such as AK8PFTH800\_TrimMass50 and similar are not used in this analysis because they bias the background estimate.
 
 
 \subsection{Signal Selection}

@@ -7,11 +7,11 @@
 
 The postfit $m_{t\bar{t}}$ distribution of the NTMJ background, estimated using the 2D alphabet discussed in the previous section, is presented in Figure \ref{fig:mttbar_spectrum_2016} ( \ref{fig:mttbar_spectrum_20172018}) for the years 2016 (2017 and 2018), overlaid with the expected background from the $t\bar{t}$ Standard Model. The observed data are also shown. As previously published, no excess beyond the expected background is observed.
 
-For the year 2016, since the expected limits do not exceed the previously published results (see Appendx \ref{sec:cut-based}), we remain unblinded, and the full 2016 dataset is utilized in the signal region, as illustrated in Figure~\ref{fig:mttbar_spectrum_2016}.
+For the year 2016, since the expected limits do not exceed the previously published results, we remain unblinded, and the full 2016 dataset is utilized in the signal region, as illustrated in Figure~\ref{fig:mttbar_spectrum_2016}.
 
 Subsequently, for 2017 and 2018, in principle, we could use 10\% of the data in the Pass region to remain blind, but this is not feasible, as the signal region becomes very low in statistics. Therefore, we present the fit results in the Fail region (medium not tight)
 
-
+t
 
 \begin{figure}[h!]
 	
@@ -266,84 +266,6 @@ $$ 1x2 = (a + b_1 m_t)( 1 + c_1 m_{t\bar{t}} + c_2 m_{t\bar{t}}^2) $$
 
 
 \clearpage
-
-
-
-
-\subsection{Goodness of Fit}
-\label{sec:gof}
-
-
-We perform a goodness of fit test for each of the 6 fits. The test statistic $q$ is 
-
-$$ q = -2 \ln \lambda $$
-
-where $\lambda$ is the ratio of the likelihoods of the model to the saturated model.
-
-The results of the goodness of fit tests for Run 2 is shown in Figure~\ref{fig:gof_run2}. The Goodness of Fit run separately for all years and rapidity regions yield a p-value > 0.1, and are shown in Appendix~\ref{sec:appendix_gof}.
-
-           
-\begin{figure}[!htbp]
-                \begin{center}
-                 \includegraphics[width=0.5\linewidth]{Plots/tests/gof_plot_run2.pdf}
-
-                    \caption{Goodness of Fit test for combined Run 2.}
-                    \label{fig:gof_run2}
-                \end{center}
-            \end{figure}          
-            
-            
-\subsection{Signal Injection}
-\label{sec:siginj}
-
-We perform a signal injection test to evaluate the tendency of the fit to model the signal contribution to data. To do this, we generate 100 toy models with a known signal contribution ($r_{inj} = 0$ for background only and $r_{inj} = 1$ for background+signal), then fit the model and compare the fitted $r$ to the known $r_{inj}$ in a pull plot using Equation~\ref{eq:si}. The signal injection tests conclude that the models for each year and rapidity region neither over-model nor under-model the signal contribution.
-
-\begin{equation}
-	P = \frac{r - r_{inj}}{r_{err}}
-\label{eq:si}
-\end{equation} 
-
-The results of the signal injection tests are shown in Figures~\ref{fig:si16}~-~\ref{fig:si18}.
-
-
-	\begin{figure}[!htbp]
-                \begin{center}
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r0p0_pull_cen16.png}
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r1p0_pull_cen16.png} \\
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r0p0_pull_fwd16.png}
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r1p0_pull_fwd16.png} \\
-    
-                    \caption{Signal Injection test for 2016 central (top) and forward (bottom), with $r_{inj} = 0$ (left) and $r_{inj} = 1$ (right).}
-                    \label{fig:si16}
-                \end{center}
-            \end{figure}
-            
-          \begin{figure}[!htbp]
-                \begin{center}
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r0p0_pull_cen17.png}
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r1p0_pull_cen17.png} \\
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r0p0_pull_fwd17.png}
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r1p0_pull_fwd17.png} \\
-    
-                    \caption{Signal Injection test for 2017 central (top) and forward (bottom), with $r_{inj} = 0$ (left) and $r_{inj} = 1$ (right).}
-                    \label{fig:si17}
-                \end{center}
-            \end{figure}
-            
-          \begin{figure}[!htbp]
-                \begin{center}
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r0p0_pull_cen18.png}
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r1p0_pull_cen18.png} \\
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r0p0_pull_fwd18.png}
-                \includegraphics[width=0.45\linewidth]{Plots/tests/signalInjection_r1p0_pull_fwd18.png} \\
-    
-                    \caption{Signal Injection test for 2018 central (top) and forward (bottom), with $r_{inj} = 0$ (left) and $r_{inj} = 1$ (right).}
-                    \label{fig:si18}
-                \end{center}
-            \end{figure}
-            
-            
-            
             
 \clearpage
 

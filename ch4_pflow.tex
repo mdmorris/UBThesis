@@ -1,14 +1,14 @@
-\chapter{Particle Flow}\label{chap:pflow}
+\chapter{Event Reconstruction}\label{chap:pflow}
 
 \input{Ch4_pflow/intro}
 
 
-Particle flow is the name given to the algorithms that take information from each of the subdetectors to reconstruct complete tracks of individual physics objects. The objects that can be identified by particle flow are the photon, charged and neutral hadrons (reconstructed as jets), the muon, and the electron. Neutrinos are not detected by CMS. Particle flow is used in CMS but was developed years before for the LEP experiment at CERN.
+Particle flow CITE is the name given to the algorithms that take information from each of the subdetectors to reconstruct complete trajectories of most particles produced in collisions. The objects that can be identified by particle flow are the photon, charged and neutral hadrons (reconstructed as jets), the muon, and the electron. Neutrinos are not detected by CMS. Particle flow is used in CMS but was developed years before for the LEP experiment at CERN CITE.
 
 In the ECAL charged and neutral hadrons cannot be distinguished from one another. Charged and neutral hadrons leave about 25\% of their energy in the ECAL.
 
 
-Particle flow can use markers of a cylindrical detector like CMS, tracks form the tracker, vertices, and hits in the subdetectors. The hits in the ECAL and HCAL appear as clusters, which can be used to estimate the energy and direction of the particles. Photons and electrons are reconstructed mostly from information in the ECAL. 
+Particle flow combines tracks form the tracker, vertices, and energy deposits in the ECAL and HCAL, and tracks from the muon system. The hits in the ECAL and HCAL are clustered to estimate the energy and direction of the particles. Photons are reconstructed mostly from information in the ECAL, and electrons from the tracker and ECAL. 
 
 The resolutions of the subdetectors do mot have the same coarseness. The tracker has a much finer resolution, while the ECAL and HCAL have a coarser resolution.
 
@@ -19,7 +19,7 @@ The resolutions of the subdetectors do mot have the same coarseness. The tracker
 \label{fig:cms_slice}
 \end{figure}
 
-\section{Reconstructing of Charged Particles}
+\section{Reconstructing Charged Particles}
 
 
 Charged particles are detected in the first layer of CMS, the silicone tracker. The particle tracks are reconstructed using a combinatorial track finder, which uses a randomly generated track to find the hits compatible with the detected charged-particle trajectory. 
@@ -48,7 +48,7 @@ In the first iteration, if a track with 8 hits and no more than one missing hit 
 
 \section{Reconstructing Electrons}
 
-Although electrons are generally stopped in the ECAL, the tracker is useful for detecting electrons because there are still inefficiencies that arise when determining which ECAL energy deposits correspond to electrons. Electrons leave a track in tracker, and they deposit some of their energy in the tracker through the mechanism of bremsstrahlung radiation. When the electron reaches the ECAL, it deposits its energy as well as the energy of the radiating bremsstrahlung photons, which results in a supercluster in the ECAL which must be detected as coming from one electron. However this is difficult to do in practice, as energy deposits from other particles in the ECAL often overlap with the electron’s supercluster.
+Electrons leave a track in tracker, and then when it reaches the ECAL, it deposits its energy as well as the energy of the radiating bremsstrahlung photons, which results in a supercluster in the ECAL which must be detected as coming from one electron. However this is difficult to do in practice, as energy deposits from other particles in the ECAL often overlap with the electron’s supercluster.
 
 
 \section{Reconstructing Photons}
@@ -57,9 +57,9 @@ Photons appear in the detector similarly to electrons but without a track. In th
 
 \section{Reconstructing Muons}
 
-The CMS detector is built to reconstruct muons as accurately as possible. The muon reconstruction is very efficient, with 99\% of muons accurately reconstructed. There can be false positives in the PF reconstruction of a muon, since some hadrons can punch through and be detected in the muon system. With multiple subdetectors able to identify muons, there are three ways muons are detected that allows for PF reconstruction of the muon. Muons that are reconstructed in the tracker alone are called “tracker muons”. Muons that are reconstructed only in the muon detectors - the drift tubes or the cathode strip chambers - are called “standalone muons”. Muons that are reconstructed using all subdetectors are “global muons". Global muon reconstruction is the most efficient of the muon reconstructions when the muon $p_T$ is greater than 10 GeV.
+The CMS detector is built to reconstruct muons as accurately as possible. The muon reconstruction is very efficient, with 99\% of muons accurately reconstructed. There can be false positives in the PF reconstruction of a muon, since some hadrons can punch through and be detected in the muon system. With multiple subdetectors able to identify muons, there are three ways muons are reconstructed that allows for PF reconstruction of the muon. Muons that are reconstructed in the tracker alone are called “tracker muons”. Muons that are reconstructed only in the muon detectors - the drift tubes or the cathode strip chambers - are called “standalone muons”. Muons that are reconstructed using all subdetectors are “global muons". Global muon reconstruction is the most efficient of the muon reconstructions when the muon $p_T$ is greater than 10 GeV.
 
-In order to distinguish between muons from $q\bar{q}$ decays and muons from W and Z decays, tighter muon identification requirements are given to identify the latter events. A "soft muon" is a tracker muon with 1 pixel hit and at least 4 other inner tracker hits. The "tight muon" is a soft muon with a $\chi^2/dof < 10$, at least one hit in the muon system, and 2 matched muon segments in the muon station. {\color{red} describe muon station}
+In order to distinguish between muons from $q\bar{q}$ decays and muons from W and Z decays, tighter muon identification requirements are given to identify the latter events. A "soft muon" is a tracker muon with 1 pixel hit and at least 4 other inner tracker hits. The "tight muon" is a soft muon with a $\chi^2/dof < 10$, at least one hit in the muon system, and 2 matched muon segments in the muon station, the section of the muon system surrounding the solenoid. CITE
 
 
 \section{Jets}
@@ -74,7 +74,7 @@ Figure~\ref{fig:pflow_jets} shows a sketch of how the energy deposits in the ECA
 \label{fig:pflow_jets}
 \end{figure}
 
-Jets are reconstructed using a clustering algorithm. The jet clustering algorithm used in this analysis is the anti-kt algorithm. The jets clustered by the anti-kt algorithm and with a radius parameter of R=0.4 are called AK4 jets. 
+Jets are reconstructed using a clustering algorithm. The jet clustering algorithm used in this analysis is the anti-kt algorithm. The jets clustered by the anti-kt algorithm and with a radius parameter of R=0.4 are called AK4 jets.
 
 The anti-kt algorithm works favors clustering a particle with the nearest hard particle~\cite{anti-kt}. This ensures that soft particles are less likely to be clustered together. The algorithm for anti-kt clustering comes from the same equation used for Cambridge/Aachen clustering:
 
@@ -90,27 +90,50 @@ The anti-kt algorithm works favors clustering a particle with the nearest hard p
 
 where $k_{ti}$ ($k_{tj}$) is transverse momentum, $y_i$ ($y_j$) is rapidity, and $\phi_i$ ($\phi_j$) is the azimuthal angle of the ith (jth) particle.
 
-The AK4 jets can be reconstructed from only the ECAL and HCAL clusters. These jets are referred to as Calo Jets. The AK4 jets reconstructed with all of the particle flow information are called PF Jets. The jets reconstructed using all of the particles produced by an MC event generator are called Ref Jets. 
+The AK4 jets can be reconstructed from only the ECAL and HCAL clusters. These jets are referred to as Calo Jets. The AK4 jets reconstructed with all of the particle flow information are called PF Jets. The jets reconstructed using all of the particles produced by an MC event generator are called Gen Jets. 
 
 
-A diagram of these PF, Calo, and Ref jets is shown in Figure~\ref{fig:pfjet} and a graphic of particle flow reconstruction is shown in Figure~\ref{fig:pflow_jets}.
+A diagram of these PF, Calo, and Gen jets is shown in Figure~\ref{fig:pfjet} and a graphic of particle flow reconstruction is shown in Figure~\ref{fig:pflow_jets}.
 
 
-PF Jets are jets reconstructed using all particle flow candidates. PF+CHS Jets are reconstructed using all particle flow candidates except the charged hadrons associated with a pileup primary vertex. Ref Jets are jets generated from Monte Carlo simulation. Calo jets are jets made by clustering the sum of energy deposits in the ECAL and HCAL detectors.. A PF, Calo, and Ref jet for the same event are shown in the diagram for Figure~\ref{fig:pfjet}.
+PF Jets are jets reconstructed using all particle flow candidates. PF+CHS Jets are reconstructed using all particle flow candidates except the charged hadrons associated with a pileup primary vertex. Gen Jets are jets generated from Monte Carlo simulation. Calo jets are jets made by clustering the sum of energy deposits in the ECAL and HCAL detectors.. A PF, Calo, and Ref jet for the same event are shown in the diagram for Figure~\ref{fig:pfjet}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/pf_jet_diagram}
-\caption{A diagram of a dijet event and the reconstruction of the PF, Calo, and Ref jets.}
+\caption{A diagram of a dijet event and the reconstruction of the PF, Calo, and Gen (labelled as "Ref") jets~\cite{pflow}.}
 \label{fig:pfjet}
 \end{figure}
 
 
+\subsection{Softdrop jet mass}
+
+One of the observables in this analysis is the soft drop mass of the AK8 jets. The soft drop algorithm recursively removes soft particles which helps to distinguish boosted jets from background QCD jets. Both jets in the event are therefore required to pass the soft drop conditions~\cite{softdrop}:
+	
+%with a separation of $\Delta \phi > 2.1$. The semileptonic analysis requires exactly 1 top-tagged AK8 jet and hence is forced to be orthognal. Our event selection does not have dilepton events and are therefore also orthogonal to the dileptonic analysis of this channel. 
+
+%The signal region is defined by the two jets in the ttbar candidate passing the top tagger, and by a soft drop mass window cut of $105 < m_{SD} < 210 GeV$. The sidebands of the soft drop mass are $25 < m_{SD} < 105 GeV$ and $210 < m_{SD} < 475 GeV$ and are used for background estimation. Both jets in the event are therefore required to pass the soft drop conditions:
+
+\begin{itemize}
+
+	\item Undo the last stage of Cambridge-Aachen clustering to to break the jet $j$ into two subjets $j_1$ and $j_2$.
+	\item Require both subjets to pass the soft drop condition
+	
+	\begin{equation}
+		   \frac {\text{min}(p_{T1},p_{T2} )}{p_{T1} + p_{T2}} >   z_{\text{cut}} \left( \frac{ \Delta R_{12} }{ R_0 } \right)^{\beta}
+	\end{equation}
+	
+	where $p_{T1}$ and $p_{T2}$ are the $p_{T}$ of $j_1$ and $j_2$, respectively; $\Delta R_{12}$ is the distance between $j_1$ and $j_2$ in the rapidity-azimuth plane, $R_0$ is the jet radius, and $z_{\text{cut}}$ = 0.1 is the soft drop threshold, and $\beta$ = 0 is the angular exponent. 
+	
+	\item If the subjets pass the soft drop condition, define $j$ as the final state soft drop jet. If the subjets fail the condition, redefine the subjet with the larger $p_T$ as $j$ and iterate the soft drop algorithm.
+	
+\end{itemize}
 
 
-\section{Missing $E_T$}
 
-The missing $E_T$ is useful for the identification of neutrinos which do not interact with any of the detector materials. It can also be useful to search for new particles. Since the mass of the particle is unknown, $E^{miss}_{T} = p^{miss}_{T}$. The sum of the $p_T$ in teh azimuthal plane is 0 before an event, which means event in which $\sum p_{T} > 0$ has missing $p_T$. Missing $p_T$ is defined in Equation~\ref{eq:ptmiss} before jet energy corrections, and in Equation~\ref{eq:ptmiss_corr} after corrections.
+\section{Missing $p_T$}
+
+The missing $p_T$ is useful for the identification of neutrinos which do not interact with any of the detector materials. It can also be useful to search for new particles. The sum of the $p_T$ in the azimuthal plane is 0 before an event, which means event in which $\sum p_{T} > 0$ has missing $p_T$. Missing $p_T$ is defined in Equation~\ref{eq:ptmiss} before jet energy corrections, and in Equation~\ref{eq:ptmiss_corr} after corrections.
 
 \begin{equation}
 	p^{miss}_{T}   = -\sum_{i=1}^{N_{particles}} p_{T_{i}}
@@ -127,12 +150,6 @@ The missing $E_T$ is useful for the identification of neutrinos which do not int
 The pileup in an event can be estimated by the number of reconstructed primary vertices. The reconstruction efficiency of primary vertices is approximately 70\%. The primary vertex considered as the collision for the event is called the "hard scatter vertex" and is chosen by ordering the primary vertex by the $\sum p_{T}^2$.
 
 The information from the reconstructed pileup vertices can be used to clean up the objects reconstructed by the PF algorithm. If a charged hadron has a primary vertex determined to be from a pileup collision, that hadron is subtracted from the reconstructed PF jets. These jets are saved separately as PF+CHS jets. Neutral hadrons can also be removed without track information by calculating the $p_T$ density in the $( \eta, \phi )$ plane using a similar algorithm to jet clustering.
-
-\section{PF Validation}
-
-The particle flow algorithm is validated by the Data to the MC for kinematic distributions and for the number of pileup vertices $\mu$. A good Data and MC agreement for the number of pileup vertices is shown in Figure~\ref{fig:pfval_mu}.
-
-
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/pfvalidation_mu_replace}
@@ -140,11 +157,22 @@ The particle flow algorithm is validated by the Data to the MC for kinematic dis
 \label{fig:pfval_mu}
 \end{figure}
 
-Additional validation for the PF algorithm in the CMS Software (CMSSW) is done by comparing the outputs of previous software releases to new software releases.
 
-\begin{itemize}
-	\item discuss ppd pf validation
-\end{itemize}
+\section{Top Tagging}
+\label{sec:toptagging}
 
+When a jet is boosted, the substructure can be exploited for tagging. Taggers apply criteria meant to separate signal jets from background. Machine Learning can also be applied to improve tagging abilities. In this analysis, the DeepAK8 mass decorrelated tagger is used~\cite{CMS:2020poo}. DeepAK8 is a machine learning tagger that takes a list of particle information and a list of secondary vertex information as inputs. The lists are then processed separately by 1 dimensional convolutional neural networks, then the outputs of the two separate layers are used as inputs in a fully connected layer, shown in Figure~\ref{fig:deepak8}.
+
+Since many particle features are correlated with mass, the CNN is able to extract the mass of the jets. In some cases, a tagger needs to be independent of the mass of the jet. In this analysis, the background estimate uses the softdrop mass as an input, and so a tagger that does not bias the mass distribution is needed.
+
+DeepAK8 has a mass decorrelated version which is developed by adding and additional mass prediction neural network. This mass prediction network calculates the accuracy of the CNN do extract the mass of the jet, and penalizes the tagger when the accuracy his high. 
+
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.8\textwidth]{figures/deepak8.png}
+	\caption{Diagram of the DeepAK8 neural network.}
+	\label{fig:deepak8}
+\end{figure}
 
 

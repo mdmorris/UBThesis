@@ -1,49 +1,124 @@
 \chapter{Theory}\label{chap:cms}
 
 
-One of the most compelling questions in participle physics today is the hierarchy problem. The Randall Sundrum Kaluza Klein model proposes a solution in which the Planck scale is located on one membrane and the TeV scale a distance L away in a fourth spatial dimension. 
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\textwidth]{figures/sm_blocks.png}
-	\caption{The fundamental particles in the standard model of particle physics.}
-	\label{fig:sm}
-\end{figure}
-\clearpage
-
-\section{History of particle physics}
-The standard model has satisfied experimental results in particle physics for 100 years. Many searches in particle physics seek to better understand this standard model, and to analyze theories that expand on it.
-
-With the discovery of the electron in 1897, the field of elementary particle physics began to grow. The electron was the first of what we consider now to be fundamental particles - particles that have no known substructure or excited states. In the early 1900s, Rutherford, Marsden, and Geiger discovered that atoms have nuclei in the center of the atom. For this experiment, Geiger also developed the Geiger counter, as originally he had to count the alpha particles scattering onto the gold foil by measuring flashes of light by eye.
-
-Radioactivity was discovered before the particles responsible for radiation were discovered. In 1896, Becquerel discovered radiation of “beta rays”, now known to be electrons. The gamma ray, or photon, was theorized by Planck to explain black body radiation, and alpha rays, used in the gold foil experiment to bombard nuclei, are bound states of two protons and two neutrons. 
-
-Elementary particle physics also gained the name “high energy experimental” physics, as scattering experiments became more common in the 1950s. These scattering experiments led to the discovery of hundreds of particles with short life spans. These new particles lacked a theory to explain them, or to predict future similar particles. Murray Gell-Mann developed a “quark model” theory to explain the new particles as “hadrons”, or bound states of the at the time three known quarks - the up, down, and strange quarks. Quarks were so named from a line in a James Joyce novel that contained the phrase “three quarks”. Three additional quarks have since been discovered.
-
-In particle physics, spin is measured in units of $\bar{h}$. Electrons are spin ½ particles, and belong to a group called “fermions”, all with spin ½ particles. There are three generations of fundamental particles, with the first generation consisting of the up quark, down quark, electron, and electron neutrino. The first particle of generation greater than the first was the muon. Initially, it was mistaken for the pion, as the pion has a mass of 135 MeV and the muon a mass of 105.7 MeV. Further experiments showed that the new, higher generation particle did not interact hadronically, and so it must have been the second generation of the electron.
-
 
 \section{The Standard Model}
 
+The Standard Model (SM) describes the fundamental particles and forces (excluding gravity) using Quantum Field Theory (QFT).
 
 
 \subsection{Fundamental Particles}
 
-The fundamental forces in the Standard Model are the electromagnetic, weak, and strong forces. Gravity, which is weaker than the weak force by several orders of magnitude, does not have a place in our current Standard Model. Many searches in the current field of particle physics seek to unify our understanding of gravity with the Standard Model. 
+The fundamental particles in the standard model are shown in Figure~\ref{fig:sm}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/sm_blocks.png}
+	\caption{The fundamental particles in the standard model of particle physics~\cite{StandardModel}.}
+	\label{fig:sm}
+\end{figure}
 
 
-The standard model is made of 12 fermions, spin-1/2 particles. The fermions are further classified into "hadrons" and "leptons". Hadrons have electromagnetic charge and color charge. Leptons have electromagnetic charge only. Leptons can exist without combining with other particles. Hadrons must combine to create a color-neutral particle. Color neutrality can be achieved by combing a red, green, and blue quark, or by combing a quark and anti quark of the same color (e.g. red and anti-red). Fermions cannot occupy the same energy state, which is referred to as the "Pauli Exclusion Principle". Particles interact by exchanging force particles, all of which are spin-1 bosons in the Standard Model. 
+
+Fundamental particles are particles with no substructure. They are point particles with properties such as mass and spin. In the standard model, there are 17 fundamental particles. Of these, 12 are fermions - spin-1/2 particles - and 5 are bosons - integer-spin particles. 
+
+The fermions are further classified into "quarks" and "leptons". Quarks have electromagnetic charge and color charge. Leptons have electroweak charge only. The properties of the leptons are described in Table~\ref{tab:leptons}, and the properties of the quarks are described in Table~\ref{tab:quarks}. 
 
 
-\subsection{Fundamental Forces}
 
-The force particles are guage bosons - spin 1 bosons that act as force carriers for the three fundamental forces. The massless photon carries the electromagnetic force. Gluons, of which there are 8 massless and neutral versions, carry the strong force. The weak force is carried by three particles - $W^+$, $W^-$, and $Z^0$. 
 
-The electromagnetic and weak forces are united under the electroweak theory, which is a generalization of Quantum Electrodynamics (QED).=
 
-The force particles are excitations of their corresponding fields. For the electromagnetic field, the force particle is the photon. The cross section of an interaction between particles is proportional to the scattering amplitude. In the simplest case of an electromagnetic interaction, an electron and muon collide with each other and exchange a photon. The coupling strength of the electromagnetic interaction is $e$, and the scattering amplitude is $sin^{-4}(\frac{\theta}{2})$. This relationship to the scattering angle occurs because the mediation force particle is massless. In the weak force interactions, the mediating particle is not massless, since the mass of the $Z$ boson is 91 GeV and the mass of the $W$ boson is 80 GeV. Therefore, weak interactions are suppressed when $q^2 << {M^{2}}_{W}$.
+Particles interact by exchanging force particles, all of which are spin-1 bosons in the Standard Model~\cite{martin}.
 
-\begin{figure}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{||c c r c||} 
+ \hline
+ Particle & Mass [MeV] & Charge & Lifetime \\ [0.5ex] 
+ \hline\hline
+ $e^{-}$ & $0.511$ & $-1$ & Stable \\ 
+ \hline
+ $\nu_e$ & $<2$ & $0$ & Stable \\
+ \hline
+ $\mu^{-}$ & $105.7$ & $-1$ & $2.197 \times 10^{-6}$ \\
+ \hline
+ $\nu_\mu$ & $<0.19$ & $0$ & Stable \\
+ \hline
+ $\tau^{-}$ & $1777$ & $-1$ & $2.906 \times 10^{-13}$  \\
+ \hline
+ $\nu_\tau$ & $<18.2$ & $0$ & Stable \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+\caption{Mass, charge and lifetime of the leptons and lepton neutrinos~\cite{martin}.}
+\label{tab:leptons}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{||c c r c||} 
+ \hline
+ Particle & Mass [GeV] & Charge & Lifetime \\ [0.5ex] 
+ \hline\hline
+ $u$ & $0.3$ & $2/3$ & Stable \\ 
+ \hline
+ $d$ & $0.3$ & $-1/3$ & Stable \\
+ \hline
+ $c$ & $1.5$ & $2/3$ & $10^{-12}$ \\
+ \hline
+ $s$ & $0.5$ & $-1/3$ & $10^{-8}$ \\
+ \hline
+ $t$ & $173$ & $2/3$ & $10^{-25}$  \\
+ \hline
+ $b$ & $4.5$ & $-1/3$ & $10^{-12}$ \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+\caption{Mass, charge and lifetime of the quarks~\cite{martin}.}
+\label{tab:quarks}
+\end{table}
+
+
+The fermions are categorized into three generations; the first generation is represented by the first column in Figure~\ref{fig:sm}, the second generation is represented by the second row, and the third generation is represented by the third row. The generations are ordered by the masses of the quarks and leptons, and so the heavier generations can decay to the lighter generations, for example a muon can decay to an electron:
+
+\begin{equation}
+	\mu^{-} \rightarrow e^{-} + \bar{\nu}_e + \nu_\mu
+\end{equation}
+
+ The first generation particles do not have any known decays.
+
+
+\subsection{Standard Model Forces}
+
+The fermions interact with one another by exchanging spin-1 gauge bosons - the force carrying particles. The strong force is mediated by the gluon, the electromagnetic force is mediated by the photon, and the weak force is mediated by the $Z^0$ and $W^{\pm}$ bosons. 
+
+\subsection*{Strong Force}
+
+The strong force is described by Quantum Chromodynamics (QCD). QCD is a form of QFT with symmetry group SU(3). The force carriers, the gluons, are neutral particles that carry the color charge. There are three possible color charges: red, green, and blue. QCD obeys "color confinement", in which only color-neutral particles can exist. Color neutrality can be achieved by combing a red, green, and blue quark, or by combining a quark and anti quark of the same color (e.g. red and anti-red).
+
+The particles in QCD also obey "asymptotic freedom", the property in which the strength of the strong force increases as distance increases. As the distance between the quarks in a $q\bar{q}$ increases, instead of the particles becoming isolated, a new $q\bar{q}$ pair is produced.
+
+A QCD scattering interaction is shown in Figure~\ref{fig:feynman_qq}.
+
+\begin{figure}[h!]
+	\centering
+	\feynmandiagram [vertical=a to b] {
+	  i1 [particle=\(\color{red}{u}\)] -- [fermion] a -- [fermion] i2 [particle=\(\color{blue}{u}\)],
+	  a -- [gluon, edge label'=\(g\)] b,
+ 	 f1 [particle=\(\color{red}{s}\)] -- [anti fermion] b -- [anti fermion] f2 [particle=\(\color{blue}{s}\)],
+	};
+	\caption{$qq$ scattering with an up quark with red color charge and a strange quark with blue color charge.}
+	\label{fig:feynman_qq}
+\end{figure} 
+
+
+
+\subsection*{Electromagnetic Force}
+
+The electromagnetic force is mediated by the photon, which carries the electric charge ($\pm 1$) and only acts on charged particles. The electromagnetic force is described by Quantum Electrodynamics (QED), which has a coupling strength $\alpha \approx 1/137$. In QED, particles obey the "Pauli Exclusion Principle": no two fermions can inhabit the same quantum state. An electromagnetic scattering interaction is shown in Figure~\ref{fig:feynman_ee}.
+
+\begin{figure}[h]
 	\centering
 	\feynmandiagram [vertical=a to b] {
 	  i1 [particle=\(e^{-}\)] -- [fermion] a -- [fermion] i2 [particle=\(e^{-}\)],
@@ -54,9 +129,18 @@ The force particles are excitations of their corresponding fields. For the elect
 	\label{fig:feynman_ee}
 \end{figure}
 
-\subsection{Electroweak Symmetry breaking}
 
-The electroweak interaction is a unified description of the electromagnetic and weak forces. At high temperatures corresponding to an energy of 246 GeV, the electromagnetic and weak forces can be described by one force. Experiments finding the W and Z bosons confirmed some of the predictions of the theory. The electroweak force has four bosons before symmetry breaking occurs ($W_1$, $W_2$, $W_3$ and $B$). After electroweak symmetry breaking, the $W$ boson is a combination of the first 2 electroweak bosons (Equation~\ref{eq:w}) and the photon and $W$ and $Z$ bosons are a combination of the latter 2 (Equation~\ref{eq:zgamma} 
+
+\subsection*{Weak Force}
+
+All fermions can interact through the weak force. The weak force is so named because it is the weakest of the three standard model forces with a coupling strength $a_W \approx 10^{-6}$ (gravity, which is not in the standard model, is weaker than the weak force). Lepton neutrinos interact through the weak force only.
+
+
+
+
+\section{Electroweak Symmetry Breaking}
+
+The electroweak interaction is a unified description of the electromagnetic and weak forces. It is based on the symmetry groups $SU(2)_L \times U(1)_Y$. At high temperatures corresponding to an energy of 246 GeV, the electromagnetic and weak forces can be described by one force. Experiments finding the W and Z bosons confirmed some of the predictions of the theory. The electroweak force has four bosons before symmetry breaking occurs ($W_1$, $W_2$, $W_3$ and $B$). After electroweak symmetry breaking, the $W$ boson is a combination of the first 2 electroweak bosons (Equation~\ref{eq:w}) and the photon and $W$ and $Z$ bosons are a combination of the latter 2 (Equation~\ref{eq:zgamma}
 
 \begin{equation}
 	W^{\pm} = \frac{1}{\sqrt{2}}
@@ -82,57 +166,87 @@ The electroweak interaction is a unified description of the electromagnetic and 
 	\label{eq:zgamma}
 \end{equation}
 
-where $\theta_W$ is the weak mixing angle, or "Weinberg angle", which is the angle relating $g'$ to $g$, as shown in Figure~\ref{fig:weinberg}.
-
-
-\section{Beyond Standard Model}
-
-
-\subsection{Searches for new physics}
-
-The top quark is a key to our understanding of the missing puzzle piecs in the standard model. The top quark is the heaviest of the fundamental particles, and its 173 GeV mass is on the order of electroweak symmetry breaking. Therefore studying the top quark in high statistics experiments such as the LHC can reveal inconsistencies in the mass of $m_t$ from predictions, or can find exotic decay modes of the top, or can find exotic intermediate states that decay to the top quark.
-
-
-
-Table \ref{fig:smtable} shows the SM particle interactions for the corresponding SM particles.
-
-Figure \ref{fig:sm} shows the particles that are fundamental in the standard model of particles physics.
+where $\theta_W$ is the weak mixing angle, or "Weinberg angle", which is the angle relating $g'$ to $g$, the hypercharge and isospin, respectively, of the weak interaction (see Figure~\ref{fig:weinberg}).
 
 \begin{figure}[htbp!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/Weinberg_angle.png}
+	\includegraphics[width=0.4\textwidth]{figures/Weinberg_angle.png}
 	\caption{The weak mixing angle $\theta_W$ is the angle relating $g'$ to $g$.}
 	\label{fig:weinberg}
 \end{figure}
 
- \begin{figure}[h!]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/sm_table.png}
-\caption{Table of SM particle interactions \textbf{to be replaced}.}
-\label{fig:smtable}
-\end{figure}
+
+\subsection*{Higgs Mechanism}
+
+The Higgs boson, the spin-0 scalar boson of the standard model, is responsible for electroweak symmetry breaking through the "Higgs Mechanism". The Higgs Mechanism is the term for the $SU(2)_L \times U(1)_Y$ symmetry of the electroweak force breaking into the the $U(1)$ of the electromagnetic force.
 
 
+The Higgs Mechanism was proposed in 1964~\cite{higgs}. Collider experiments since searched for the Higgs particle, whose mass was not known from theoretical predictions. The Higgs boson was not detected until 2012, when the CMS and ATLAS experiments at the LHC published separate 
 
 
+\section{Beyond the Standard Model}
 
-\subsection{Extra Dimensions}
 
-One of the theories introduced to explain the hierarchy problem is the Kaluza-Klein gluon with an extra spacial dimension from the Randall-Sundrum (RS) framework. In the RS framework, there are two planes - the UV plane and the IR plane. The Planck scale is located on the UV plane, and the TeV scale is located on the IR plane. The two planes interact in the fifth spacial dimension, called the “bulk”. The Kaluza-Klein gluon has a signal comparable to SM QCD background with a luminosity of 100 fb$^{-1}$, which is comparable to the 137 fb$^{-1}$ luminosity of Run 2.
+The Standard Model is incomplete. It does not contain gravity, which is much weaker than the weak force. The matter described by the standard model makes up only 5\% of the known matter in the universe, the rest is Dark Matter (matter that does not interact with Standard Model particles but does interact gravitationally) and Dark Energy, which is responsible for the acceleration of the expansion of the universe. Theoretical models attempt to solve these problems. 
 
-A diagram of the scale of the standard model forces to the planck scale is shown in Figure~\ref{fig:planck}. A diagram of the extra dimensions that are theorized to explain the large gap between the standard model forces and the Planck scale is shown in Figure~\ref{fig:rsbrane}.
 
-\begin{figure}[h]
+\subsection*{Extra Dimensions}
+
+
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/Planck_scale.png}
 	\caption{Logarithmic scale of standard model forces and Planck scale~\cite{Planck_scale}.}
 	\label{fig:planck}
 \end{figure}
 
+
+The orders of magnitude difference between the Planck scale and the electroweak scale is called the "Hierarchy Problem". Theoretical predictions suggest that the mass of the Higgs boson should be much larger than its $m_H \approx 125$ GeV. The heaviest fundamental particle is the top quark, at $m_t \approx 173$ GeV, which is on the order of the electroweak scale ($\approx 100$ GeV). A possible answer to this discrepancy is to search for new, heavier particles at the highest energy scales possible at the LHC that decay to $t\bar{t}$ pairs. 
+
+The Randall Sundrum (RS1) model is a theoretical framework with a fourth spatial dimension, with a 3 dimensional brane on the electroweak scale and a 1 dimensional brane on the Planck scale~\cite{rs1}. Figure~\ref{fig:rsbrane} shows a diagram of this RS1 model, where the scale of gravity decreases when moving from the UV brane to the IR brane. The model proposes a graviton that is on the TeV scale, and decays to $t\bar{t}$. A second Randall-Sundrum model (RS2) proposes a fourth spatial dimension but only one TeV-scale brane~\cite{rs2}.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\textwidth]{figures/RSBrane.png}
 	\caption{The extra spatial dimensions proposed in the Randall-Sundrum model~\cite{RSBrane}.}
-	\label{fig:rsrbane}
+	\label{fig:rsbrane}
 \end{figure}
 
+
+
+%
+%\subsection*{Dark Matter}
+%
+%
+%Simplified Dark Matter models propose a $Z'$ boson that decays to $t\bar{t}$~\cite{simplified_dm}.
+%
+%
+%
+%\subsection*{Leptophobic Topcolor Resonances}
+%
+%
+%\section{Monte Carlo Simulation}
+%
+%
+%For simulations of QCD in pp collisions on the energy scales of the LHC, several methods of calculation are combined. For the energy scale $\mu^2$ > 1 GeV, part
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=0.65\textwidth]{figures/parton_shower.png}
+%	\caption{Diagram of a parton shower from a pp collison~\cite{PartonShower}.}
+%	\label{fig:ps}
+%\end{figure}
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=0.65\textwidth]{figures/pdf_lhc.png}
+%	\caption{Diagram of a parton shower from a pp collison~\cite{pdfs}.}
+%	\label{fig:ps}
+%\end{figure}
+%
+
+
+%\begin{itemize}
+%	\item PDFs
+%	\item ME + PS + hadronization
+%\end{itemize}
