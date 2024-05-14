@@ -140,7 +140,7 @@ All fermions can interact through the weak force. The weak force is so named bec
 
 \section{Electroweak Symmetry Breaking}
 
-The electroweak interaction is a unified description of the electromagnetic and weak forces. It is based on the symmetry groups $SU(2)_L \times U(1)_Y$. At high temperatures corresponding to an energy of 246 GeV, the electromagnetic and weak forces can be described by one force. Experiments finding the W and Z bosons confirmed some of the predictions of the theory. The electroweak force has four bosons before symmetry breaking occurs ($W_1$, $W_2$, $W_3$ and $B$). After electroweak symmetry breaking, the $W$ boson is a combination of the first 2 electroweak bosons (Equation~\ref{eq:w}) and the photon and $W$ and $Z$ bosons are a combination of the latter 2 (Equation~\ref{eq:zgamma}
+The electroweak interaction is a unified description of the electromagnetic and weak forces. It is based on the symmetry groups $SU(2)_L \times U(1)_Y$. At high temperatures corresponding to an energy of 246 GeV, the electromagnetic and weak forces can be described by one force. Experiments finding the W and Z bosons confirmed some of the predictions of the theory. The electroweak force has four bosons before symmetry breaking occurs ($W_1$, $W_2$, $W_3$ and $B$). After electroweak symmetry breaking, the $W$ boson is a combination of the first 2 electroweak bosons (Equation~\ref{eq:w}) and the photon and $W$ and $Z$ bosons are a combination of the latter 2 (Equation~\ref{eq:zgamma})
 
 \begin{equation}
 	W^{\pm} = \frac{1}{\sqrt{2}}
@@ -222,31 +222,31 @@ The Randall Sundrum (RS1) model is a theoretical framework with a fourth spatial
 %
 %
 %
-%\subsection*{Leptophobic Topcolor Resonances}
-%
-%
-%\section{Monte Carlo Simulation}
-%
-%
-%For simulations of QCD in pp collisions on the energy scales of the LHC, several methods of calculation are combined. For the energy scale $\mu^2$ > 1 GeV, part
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=0.65\textwidth]{figures/parton_shower.png}
-%	\caption{Diagram of a parton shower from a pp collison~\cite{PartonShower}.}
-%	\label{fig:ps}
-%\end{figure}
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=0.65\textwidth]{figures/pdf_lhc.png}
-%	\caption{Diagram of a parton shower from a pp collison~\cite{pdfs}.}
-%	\label{fig:ps}
-%\end{figure}
-%
+\subsection*{$Z'$ Models}
+
+Some models predict exotic $Z'$ bosons that can decay to SM $t\bar{t}$ if the couplings to leptons are suppressed, and $m_{Z'} > 2m_{t}$~\cite{leptophobicZprime}. The leptophobic $Z'$ still decays to exotic leptons $\approx 50$\% of the time.
+
+Simplified Dark Matter (DM) models predict DM particles interacting with SM particles through a $Z'$ mediator boson~\cite{wasmer_dark_matter}.
+
+\section{Monte Carlo Simulation}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.65\textwidth]{figures/parton_shower.png}
+	\caption{Diagram of a parton shower from a pp collison~\cite{PartonShower}.}
+	\label{fig:ps}
+\end{figure}
+
+For simulations of QCD in pp collisions on the energy scales of the LHC, several methods of calculation are combined. Matrix element (ME) simulations are used for the interactions with isolated particles. The parton shower (PS) that occurs for the energy scales $\mu^2 > 1$ GeV can be used in addition to ME calculations or on its own. A depiction of a parton shower from a pp collision event is shown in Figure~\ref{fig:ps}. Additionally, there is a non-perturbative hadronization calculation at energy scales of $mu^2 < 1$ GeV. ME calculations are done with MadGraph, and PS calculations are done with Pythia and HERWIG~\cite{MadGraph,pythia8}.
+
+Parton distribution functions (PDFs) describe the probability of a parton to be found at energy scale $Q^2$. The PDFs on the scale of the LHC are shown in Figure~\ref{fig:pdf} for the momentum fraction $x$ of the proton momentum.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.65\textwidth]{figures/pdf_lhc.png}
+	\caption{Diagram of a parton shower from a pp collison~\cite{pdfs}.}
+	\label{fig:pdf}
+\end{figure}
 
 
-%\begin{itemize}
-%	\item PDFs
-%	\item ME + PS + hadronization
-%\end{itemize}
+

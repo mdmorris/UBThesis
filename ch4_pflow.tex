@@ -74,6 +74,11 @@ Figure~\ref{fig:pflow_jets} shows a sketch of how the energy deposits in the ECA
 \label{fig:pflow_jets}
 \end{figure}
 
+
+
+\subsection*{Jet Clustering}
+
+
 Jets are reconstructed using a clustering algorithm. The jet clustering algorithm used in this analysis is the anti-kt algorithm. The jets clustered by the anti-kt algorithm and with a radius parameter of R=0.4 are called AK4 jets.
 
 The anti-kt algorithm works favors clustering a particle with the nearest hard particle~\cite{anti-kt}. This ensures that soft particles are less likely to be clustered together. The algorithm for anti-kt clustering comes from the same equation used for Cambridge/Aachen clustering:
@@ -88,7 +93,11 @@ The anti-kt algorithm works favors clustering a particle with the nearest hard p
 	\Delta_{ij} = (y_i - y_j)^2 + (\phi_i - \phi_j)^2
 \end{equation}
 
-where $k_{ti}$ ($k_{tj}$) is transverse momentum, $y_i$ ($y_j$) is rapidity, and $\phi_i$ ($\phi_j$) is the azimuthal angle of the ith (jth) particle.
+where $k_{ti}$ ($k_{tj}$) is the transverse momentum, $y_i$ ($y_j$) is the rapidity, and $\phi_i$ ($\phi_j$) is the azimuthal angle of the ith (jth) particle.
+
+For the anti-kt algorithm, $p=-1$. Setting $p<0$ yeilds a clustering algorithm that favors jets with hard particles. The kt algorithm uses the same equations with $p=1$ and favors jest with soft radiation, and the Cambridge-Aachen algorithm uses $p=0$ which makes the algorithm $p_T$ independent.
+
+The algorithm is performed by first calculating $d_{ij}$ and $d_{iB}$. If the minimum of the two is not $d_{iB}$, particles $i$ and $j$ are reclustered into a single particle, and the algorithm is performed again.
 
 The AK4 jets can be reconstructed from only the ECAL and HCAL clusters. These jets are referred to as Calo Jets. The AK4 jets reconstructed with all of the particle flow information are called PF Jets. The jets reconstructed using all of the particles produced by an MC event generator are called Gen Jets. 
 
@@ -104,6 +113,7 @@ PF Jets are jets reconstructed using all particle flow candidates. PF+CHS Jets a
 \caption{A diagram of a dijet event and the reconstruction of the PF, Calo, and Gen (labelled as "Ref") jets~\cite{pflow}.}
 \label{fig:pfjet}
 \end{figure}
+
 
 
 \subsection{Softdrop jet mass}
@@ -131,6 +141,21 @@ One of the observables in this analysis is the soft drop mass of the AK8 jets. T
 
 
 
+
+\subsection*{Jet Energy Resolution and Corrections}
+
+
+Reconstructed jets are calibrated using measurements from simulated QCD
+ in a sequence described by the diagram in Figure~\ref{fig:jerc}. Pileup offset accounts for differences reco jets and gen jets after pileup mitigation. Jet energy resolution corrections handle the difference in jet response $R = p_{T} / p_{T,\text{gen}}$ in ($p_T$, $\eta$) bins. Jet energy scale corrections account for differences to mean jet energy resolution measurements in $\eta$ bins.
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.8\textwidth]{figures/jerc.png}
+	\caption{Diagram of the corrections applied to reconstructed jets~\cite{JEC2012}}.
+	\label{fig:jerc}
+\end{figure}
+
+
 \section{Missing $p_T$}
 
 The missing $p_T$ is useful for the identification of neutrinos which do not interact with any of the detector materials. It can also be useful to search for new particles. The sum of the $p_T$ in the azimuthal plane is 0 before an event, which means event in which $\sum p_{T} > 0$ has missing $p_T$. Missing $p_T$ is defined in Equation~\ref{eq:ptmiss} before jet energy corrections, and in Equation~\ref{eq:ptmiss_corr} after corrections.
@@ -150,12 +175,25 @@ The missing $p_T$ is useful for the identification of neutrinos which do not int
 The pileup in an event can be estimated by the number of reconstructed primary vertices. The reconstruction efficiency of primary vertices is approximately 70\%. The primary vertex considered as the collision for the event is called the "hard scatter vertex" and is chosen by ordering the primary vertex by the $\sum p_{T}^2$.
 
 The information from the reconstructed pileup vertices can be used to clean up the objects reconstructed by the PF algorithm. If a charged hadron has a primary vertex determined to be from a pileup collision, that hadron is subtracted from the reconstructed PF jets. These jets are saved separately as PF+CHS jets. Neutral hadrons can also be removed without track information by calculating the $p_T$ density in the $( \eta, \phi )$ plane using a similar algorithm to jet clustering.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.75\textwidth]{figures/pfvalidation_mu_replace}
-\caption{Comparison of number of pileup vertices in MC and Data~\cite{CMS-PRF-14-001}}
-\label{fig:pfval_mu}
-\end{figure}
+
+
+
+
+
+
+\subsection*{Pileup Mitigation}
+
+Pileup per particle identification (PUPPI)~\cite{puppi} weights the 4-momentum of particles in an event corresponding to how pileup-like they are. In order to assign these weights, a shape $\alpha_i$ is calculated and compared to the $\alpha$ distribution of charged pileup particles.
+
+\begin{equation}
+	\alpha_i = \log \sum_{j \in \text{event}} \frac{p_{Tj}}{R_{ij}} \times \Theta \left( R_{min} \leq \Delta R_{ij} \leq R_0  \right)
+\end{equation}
+
+where $\Theta$ is the Heaviside step function, $R_0$ is the cone size, and $R_{min} = 0.2$.
+
+
+Charged Hadron Subtraction (CHS) removes charged hadrons associated with pileup vertices. In this analysis, AK8 jets use the PUPPI algorithm, and AK4 jets use the CHS algorithm for pileup mitigation.
+
 
 
 \section{Top Tagging}
