@@ -3,7 +3,7 @@
 \input{Ch4_pflow/intro}
 
 
-Particle flow CITE is the name given to the algorithms that take information from each of the subdetectors to reconstruct complete trajectories of most particles produced in collisions. The objects that can be identified by particle flow are the photon, charged and neutral hadrons (reconstructed as jets), the muon, and the electron. Neutrinos are not detected by CMS. Particle flow is used in CMS but was developed years before for the LEP experiment at CERN CITE.
+Particle flow~\cite{particleflow} is the name given to the algorithms that take information from each of the subdetectors to reconstruct complete trajectories of most particles produced in collisions. The objects that can be identified by particle flow are the photon, charged and neutral hadrons (reconstructed as jets), the muon, and the electron. Neutrinos are not detected by CMS. Particle flow is used in CMS but was developed years before for the LEP experiment at CERN~\cite{particleflow2}.
 
 In the ECAL charged and neutral hadrons cannot be distinguished from one another. Charged and neutral hadrons leave about 25\% of their energy in the ECAL.
 
@@ -34,7 +34,10 @@ The particle flow algorithm reconstructs tracks using iterative tracking. First,
 \end{enumerate}
 
 
-To reduce misreconstruction of tracks, this combinatorial track finding is done several times with more critera applied each time. The hits that have already been assigned to tracks are also removed from consideration in future iterations. Additional criteria are placed on 
+
+
+To reduce misreconstruction of tracks, this combinatorial track finding is done several times with more criteria applied each time. The hits that have already been assigned to tracks are also removed from consideration in future iterations. Some of the criteria for reconstructing a track are placed on 
+
 
 \begin{itemize}
 	\item $\chi^2$ of the fit
@@ -45,6 +48,14 @@ To reduce misreconstruction of tracks, this combinatorial track finding is done 
 \end{itemize}
 
 In the first iteration, if a track with 8 hits and no more than one missing hit is found it is considered a reconstructed track and no further criteria is used. The track reconstruction algorithm goes through 10 iterations, first starting with tracks with 3 pixel hits, then on tracks with less pixel hits, then tracks with only hits in the strips, then looking for muons using information from the muon detector system.
+
+
+\section{Reconstructing Neutral Hadrons}
+
+Neutral Hadrons will deposit their energy in the HCAL but will not leave a track in the tracker, and will not deposit much energy in the ECAL.
+
+
+
 
 \section{Reconstructing Electrons}
 
@@ -59,7 +70,7 @@ Photons appear in the detector similarly to electrons but without a track. In th
 
 The CMS detector is built to reconstruct muons as accurately as possible. The muon reconstruction is very efficient, with 99\% of muons accurately reconstructed. There can be false positives in the PF reconstruction of a muon, since some hadrons can punch through and be detected in the muon system. With multiple subdetectors able to identify muons, there are three ways muons are reconstructed that allows for PF reconstruction of the muon. Muons that are reconstructed in the tracker alone are called “tracker muons”. Muons that are reconstructed only in the muon detectors - the drift tubes or the cathode strip chambers - are called “standalone muons”. Muons that are reconstructed using all subdetectors are “global muons". Global muon reconstruction is the most efficient of the muon reconstructions when the muon $p_T$ is greater than 10 GeV.
 
-In order to distinguish between muons from $q\bar{q}$ decays and muons from W and Z decays, tighter muon identification requirements are given to identify the latter events. A "soft muon" is a tracker muon with 1 pixel hit and at least 4 other inner tracker hits. The "tight muon" is a soft muon with a $\chi^2/dof < 10$, at least one hit in the muon system, and 2 matched muon segments in the muon station, the section of the muon system surrounding the solenoid. CITE
+In order to distinguish between muons from $q\bar{q}$ decays and muons from W and Z decays, tighter muon identification requirements are given to identify the latter events. A "soft muon" is a tracker muon with 1 pixel hit and at least 4 other inner tracker hits. The "tight muon" is a soft muon with a $\chi^2/dof < 10$, at least one hit in the muon system, and 2 matched muon segments in the muon station, the section of the muon system surrounding the solenoid.
 
 
 \section{Jets}
@@ -90,7 +101,7 @@ The anti-kt algorithm works favors clustering a particle with the nearest hard p
 	d_{iB} = k^{2p}_{ti}
 \end{equation}
 \begin{equation}
-	\Delta_{ij} = (y_i - y_j)^2 + (\phi_i - \phi_j)^2
+	\Delta_{ij}^2 = (y_i - y_j)^2 + (\phi_i - \phi_j)^2
 \end{equation}
 
 where $k_{ti}$ ($k_{tj}$) is the transverse momentum, $y_i$ ($y_j$) is the rapidity, and $\phi_i$ ($\phi_j$) is the azimuthal angle of the ith (jth) particle.
@@ -203,7 +214,7 @@ When a jet is boosted, the substructure can be exploited for tagging. Taggers ap
 
 Since many particle features are correlated with mass, the CNN is able to extract the mass of the jets. In some cases, a tagger needs to be independent of the mass of the jet. In this analysis, the background estimate uses the softdrop mass as an input, and so a tagger that does not bias the mass distribution is needed.
 
-DeepAK8 has a mass decorrelated version which is developed by adding and additional mass prediction neural network. This mass prediction network calculates the accuracy of the CNN do extract the mass of the jet, and penalizes the tagger when the accuracy his high. 
+DeepAK8 has a mass decorrelated version which is developed by adding an additional mass prediction neural network. This mass prediction network calculates the accuracy of the CNN to extract the mass of the jet, and penalizes the tagger to remove the mass prediction.
 
 
 \begin{figure}[h]

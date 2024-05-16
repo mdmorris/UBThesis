@@ -4,7 +4,7 @@
 
 \section{The Standard Model}
 
-The Standard Model (SM) describes the fundamental particles and forces (excluding gravity) using Quantum Field Theory (QFT).
+The Standard Model (SM) is a Quantum Field Theory (QFT) that describes the fundamental particles and forces (excluding gravity).
 
 
 \subsection{Fundamental Particles}
@@ -20,9 +20,9 @@ The fundamental particles in the standard model are shown in Figure~\ref{fig:sm}
 
 
 
-Fundamental particles are particles with no substructure. They are point particles with properties such as mass and spin. In the standard model, there are 17 fundamental particles. Of these, 12 are fermions - spin-1/2 particles - and 5 are bosons - integer-spin particles. 
+Fundamental particles are particles with no substructure. They are point-like particles with properties such as mass and spin. In the standard model, there are 17 fundamental particles. Of these, 12 are fermions - spin-1/2 particles - and 5 are bosons - integer-spin particles. 
 
-The fermions are further classified into "quarks" and "leptons". Quarks have electromagnetic charge and color charge. Leptons have electroweak charge only. The properties of the leptons are described in Table~\ref{tab:leptons}, and the properties of the quarks are described in Table~\ref{tab:quarks}. 
+The fermions are further classified into "quarks" and "leptons". Quarks have fractional charges while leptons have integer charges. The properties of the leptons are described in Table~\ref{tab:leptons}, and the properties of the quarks are described in Table~\ref{tab:quarks}. 
 
 
 
@@ -51,7 +51,7 @@ Particles interact by exchanging force particles, all of which are spin-1 bosons
  \hline
 \end{tabular}
 \end{center}
-\caption{Mass, charge and lifetime of the leptons and lepton neutrinos~\cite{martin}.}
+\caption{Mass, charge and lifetime of the charged and neutral leptons~\cite{martin}.}
 \label{tab:leptons}
 \end{table}
 
@@ -97,7 +97,7 @@ The fermions interact with one another by exchanging spin-1 gauge bosons - the f
 
 The strong force is described by Quantum Chromodynamics (QCD). QCD is a form of QFT with symmetry group SU(3). The force carriers, the gluons, are neutral particles that carry the color charge. There are three possible color charges: red, green, and blue. QCD obeys "color confinement", in which only color-neutral particles can exist. Color neutrality can be achieved by combing a red, green, and blue quark, or by combining a quark and anti quark of the same color (e.g. red and anti-red).
 
-The particles in QCD also obey "asymptotic freedom", the property in which the strength of the strong force increases as distance increases. As the distance between the quarks in a $q\bar{q}$ increases, instead of the particles becoming isolated, a new $q\bar{q}$ pair is produced.
+The particles in QCD also obey "asymptotic freedom", the property in which the strength of the strong force increases as distance increases. As the distance between the quarks in a $q\bar{q}$ increases, instead of the particles becoming isolated, a new $q\bar{q}$ pair is produced. This unique feature of QCD is what initiates parton showers which appear as jets in the detector.
 
 A QCD scattering interaction is shown in Figure~\ref{fig:feynman_qq}.
 
@@ -187,7 +187,7 @@ The Higgs Mechanism was proposed in 1964~\cite{higgs}. Collider experiments sinc
 \section{Beyond the Standard Model}
 
 
-The Standard Model is incomplete. It does not contain gravity, which is much weaker than the weak force. The matter described by the standard model makes up only 5\% of the known matter in the universe, the rest is Dark Matter (matter that does not interact with Standard Model particles but does interact gravitationally) and Dark Energy, which is responsible for the acceleration of the expansion of the universe. Theoretical models attempt to solve these problems. 
+The Standard Model is incomplete. It does not contain gravity, which is much weaker than the weak force. The matter described by the standard model makes up only 5\% of the known matter in the universe, the rest is Dark Matter (matter that does not interact with Standard Model particles but does interact gravitationally) and Dark Energy, which is responsible for the acceleration of the expansion of the universe, among other challenges to the SM, like the hierarchy problem, described below. Theoretical models attempt to solve these problems. 
 
 
 \subsection*{Extra Dimensions}
@@ -237,7 +237,7 @@ Simplified Dark Matter (DM) models predict DM particles interacting with SM part
 	\label{fig:ps}
 \end{figure}
 
-For simulations of QCD in pp collisions on the energy scales of the LHC, several methods of calculation are combined. Matrix element (ME) simulations are used for the interactions with isolated particles. The parton shower (PS) that occurs for the energy scales $\mu^2 > 1$ GeV can be used in addition to ME calculations or on its own. A depiction of a parton shower from a pp collision event is shown in Figure~\ref{fig:ps}. Additionally, there is a non-perturbative hadronization calculation at energy scales of $mu^2 < 1$ GeV. ME calculations are done with MadGraph, and PS calculations are done with Pythia and HERWIG~\cite{MadGraph,pythia8}.
+For simulations of QCD in pp collisions on the energy scales of the LHC, several methods of calculation are combined. Matrix element (ME) simulations are used for the interactions with isolated particles. The parton shower (PS) that occurs for the energy scales $\mu^2 > 1$ GeV can be used in addition to ME calculations or on its own. A depiction of a parton shower from a pp collision event is shown in Figure~\ref{fig:ps}. Additionally, there is a non-perturbative hadronization calculation at energy scales of $\mu^2 < 1$ GeV. ME parameterizations are done with MadGraph, Pythia and POWHEG, and parton showering are done with Pythia~\cite{MadGraph,pythia8}.
 
 Parton distribution functions (PDFs) describe the probability of a parton to be found at energy scale $Q^2$. The PDFs on the scale of the LHC are shown in Figure~\ref{fig:pdf} for the momentum fraction $x$ of the proton momentum.
 
