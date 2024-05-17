@@ -1,25 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%     filename  = "Thesis.tex",
-%     version   = "Draft 1",
-%     date      = "2023",
-%     authors   = "Margaret Morris",
-%     copyright = "Nicholas P. Nicoletti",
-%     address   = "Department of Physics,
-%                  235 Fronczak Hall,
-%                  University at Buffalo,
-%                  Buffalo, NY 14260,
-%                  USA",
-%     telephone = "(585) 752-5167",
-%     email     = "morris35@buffalo.edu",
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Change History:
-%
-% Draft Version 1.0 - No Changes.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% template: https://github.com/jmodares/UBThesis
 %
 % This is a template file to help get you started using the
 % psuthesis.cls for theses and dissertations at Penn State
@@ -104,7 +85,7 @@
 \usepackage[table,x11names,dvipsnames,table]{xcolor}
 
 \DeclareGraphicsExtensions{.pdf, .jpg, .png}
-\usepackage{natbib}
+\usepackage[numbers,sort&compress]{natbib}
 \usepackage{har2nat}
 \usepackage{verbatim}
 \usepackage{url}
@@ -114,6 +95,8 @@
 \usepackage{sgamevar}
 \usepackage{egameps}
 \usepackage{lineno}
+\usepackage{appendix}
+
 \usepackage[compat=1.1.0]{tikz-feynman} 
 %\linenumbers
 
@@ -342,12 +325,18 @@
 % \addtocontents if you want things to appear the proper
 % sequence. Since the PSU Grad School requires
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix
+%\appendix
+
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\begin{appendices}
 \include{appendix_kinematics}
 \include{appendix_2dalphabet}
 \include{appendix_systematics}
 \include{appendix_limits}
 \include{appendix_statistics}
+\end{appendices}
 
 
 %\include{Appendix-A/main}
